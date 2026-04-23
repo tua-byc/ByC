@@ -1,93 +1,1231 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en-US">
-	<head profile="https://gmpg.org/xfn/11">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>B&amp;C | Servicios Financieros</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="robots" content="index, follow" />
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B&C | Servicios Financieros desde 1986</title>
+    <meta name="description" content="B&C Servicios Financieros - Banca de inversión independiente en Chile. Fusiones y Adquisiciones, Estructuración de Negocios. Más de 40 años de experiencia.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --navy: #0a1628;
+            --navy-light: #132240;
+            --navy-mid: #1a2d50;
+            --gold: #c9a84c;
+            --gold-light: #d4b96a;
+            --gold-dim: rgba(201, 168, 76, 0.15);
+            --white: #ffffff;
+            --off-white: #f4f5f7;
+            --gray-100: #e8eaed;
+            --gray-300: #b0b5be;
+            --gray-500: #6b7280;
+            --gray-700: #374151;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
 
-		<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="https://www.byc.cl/feed/" />
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-sans);
+            color: var(--gray-700);
+            line-height: 1.7;
+            background: var(--white);
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
 
-		<!-- Google Webfonts -->
-		<link href="https://fonts.googleapis.com/css?family=PT+Sans:r,b,i,bi" rel="stylesheet" type="text/css" />
+        /* ===== UTILITIES ===== */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        .section-label {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .section-title.light { color: var(--white); }
+        .gold-line {
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+            margin-bottom: 30px;
+        }
+        .gold-line.center { margin-left: auto; margin-right: auto; }
 
-		<!-- Woo Custom Typography -->
-		<style type="text/css">
-			h1,
-			h2,
-			h3,
-			h4,
-			h5,
-			h6,
-			.widget h3,
-			.post .title,
-			.nav a,
-			.section .post .title,
-			.archive_header {
-				font-family: 'PT Sans', arial, sans-serif;
-			}
-		</style>
+        /* ===== NAVIGATION ===== */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 24px 0;
+            transition: all 0.4s ease;
+        }
+        .nav-bar.scrolled {
+            background: rgba(10, 22, 40, 0.97);
+            backdrop-filter: blur(12px);
+            padding: 14px 0;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.3);
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .nav-logo img {
+            height: 54px;
+            transition: height 0.3s;
+        }
+        .nav-bar.scrolled .nav-logo img { height: 42px; }
+        .nav-logo-text {
+            font-family: var(--font-sans);
+            font-size: 0.65rem;
+            font-weight: 400;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgb(255, 255, 255);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 6px;
+        }
+        .nav-links a {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.75);
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--white);
+            background: rgba(201, 168, 76, 0.15);
+        }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
 
-		<!-- Custom Stylesheet -->
-		<link href="/css/custom.css" rel="stylesheet" type="text/css" />
-	</head>
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--navy);
+        }
+        .hero-video-container {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            overflow: hidden;
+        }
+        .hero-video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(10,22,40,0.92) 0%, rgba(19,34,64,0.75) 50%, rgba(10,22,40,0.88) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 28px;
+            padding: 8px 18px;
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 30px;
+        }
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5.5vw, 4rem);
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+        .hero-subtitle {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 540px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .hero-stat-number {
+            font-family: var(--font-serif);
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .hero-stat-label {
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-top: 6px;
+        }
+        /* Submarine silhouette accent */
+        .hero-submarine {
+            position: absolute;
+            right: -80px;
+            bottom: 60px;
+            width: 550px;
+            opacity: 0.04;
+            z-index: 1;
+        }
+        .hero-submarine svg {
+            width: 100%;
+            fill: var(--white);
+        }
+        .hero-scroll {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .hero-scroll span {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+        }
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            animation: scrollPulse 2s infinite;
+        }
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
 
-	<body class="home">
-		<div id="wrapper">
-			<div id="header-container">
-				<div id="header" class="col-full">
-					<div id="logo">
-						<a href="/" title="Servicios Financieros">
-							<img src="/img/logobyc.gif" alt="B&amp;C" />
-						</a>
-						<h1 class="site-title"><a href="/">B&amp;C</a></h1>
-						<span class="site-description">Servicios Financieros</span>
-					</div>
+        /* ===== ABOUT ===== */
+        .about {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-image-wrap {
+            position: relative;
+        }
+        .about-image-wrap img {
+            border-radius: 6px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+        .about-image-accent {
+            position: absolute;
+            top: -16px;
+            left: -16px;
+            width: 100px;
+            height: 100px;
+            border-top: 3px solid var(--gold);
+            border-left: 3px solid var(--gold);
+            border-radius: 6px 0 0 0;
+        }
+        .about-text p {
+            font-size: 0.95rem;
+            color: var(--gray-500);
+            margin-bottom: 20px;
+        }
+        .about-values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 30px;
+        }
+        .about-value {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--navy);
+        }
+        .about-value::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
 
-					<div id="navigation" class="fr">
-						<button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
-						<div class="nav">
-							<ul id="menu-menu-principal-esp" class="menu">
-								<li id="menu-item-62" class=""><a href="/acerca-de/">ACERCA DE B&#038;C</a></li>
-								<li id="menu-item-61" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-61"><a href="/servicios/">SERVICIOS OFRECIDOS</a></li>
-								<li id="menu-item-60" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-60"><a href="/transacciones/">TRANSACCIONES RELEVANTES</a></li>
-								<li id="menu-item-59" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-59"><a href="/contacto/">CONTACTO</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+        /* ===== PHILOSOPHY (submarine section) ===== */
+        .philosophy {
+            padding: 80px 0;
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+        .philosophy-inner {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+        }
+        .philosophy-text {
+            flex: 1;
+        }
+        .philosophy-text .section-label { color: var(--gold); }
+        .philosophy-text h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            color: var(--white);
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.4;
+            margin-bottom: 24px;
+        }
+        .philosophy-text p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+        }
+        .philosophy-image {
+            flex: 1;
+            position: relative;
+        }
+        .philosophy-image img {
+            border-radius: 6px;
+            opacity: 0.7;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .philosophy-bg-pattern {
+            position: absolute;
+            top: 0; right: 0;
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+        }
 
-			<div class="slide-image fl" style="display: flex; justify-content: center; width: 100%">
-				<img src="/img/byc-servicios-financieros.png" alt="Servicios Financieros desde 1986" class="slide-img" />
-				<video width="100%" style="max-width: 980px" autoplay muted loop playsinline>
-					<source src="/video/video_web_ByC.mp4" type="video/mp4" />
-				</video>
-			</div>
+        /* ===== SERVICES ===== */
+        .services {
+            padding: 100px 0;
+            background: var(--off-white);
+        }
+        .services-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+        .services-header .gold-line { margin: 0 auto 30px; }
+        .services-header p {
+            font-size: 0.95rem;
+            color: var(--gray-500);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 40px 30px;
+            border: 1px solid var(--gray-100);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+            border-color: transparent;
+        }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gold-dim);
+            border-radius: 10px;
+            margin-bottom: 24px;
+        }
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .service-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 14px;
+        }
+        .service-card p {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+        .service-card ul {
+            list-style: none;
+            margin-top: 16px;
+        }
+        .service-card ul li {
+            font-size: 0.82rem;
+            color: var(--gray-500);
+            padding: 5px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+        .service-card ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
 
-			<div id="footer-container">
-				<div id="footer" class="col-full">
-					<div id="copyright">
-						<h6>B&amp;C Servicios Financieros S.A.</h6>
-						Magdalena 181, Oficina 1301, Las Condes, Santiago, CP 7550055, Chile<br />
-						Tel. + 562 2422 7700 - Fax + 562 2378-6319
-					</div>
-				</div>
-				<!-- /#footer  -->
-			</div>
-			<!-- /#footer-container -->
-		</div>
-		<!-- /#wrapper -->
+        /* ===== TRANSACTIONS ===== */
+        .transactions {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        .transactions-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+        .transactions-header p {
+            font-size: 0.95rem;
+            color: var(--gray-500);
+        }
+        .transactions-highlights {
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        .highlight-item {
+            display: flex;
+            gap: 20px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        .highlight-item:last-child { border-bottom: none; }
+        .highlight-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin-top: 7px;
+            flex-shrink: 0;
+        }
+        .highlight-item p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+        .highlight-item strong {
+            color: var(--navy);
+        }
+        .transactions-subtitle {
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gray-300);
+            margin-bottom: 36px;
+        }
+        .logos-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+        }
+        .logo-item {
+            background: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: 8px;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 130px;
+            transition: all 0.3s;
+        }
+        .logo-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 4px 20px rgba(201,168,76,0.1);
+            transform: translateY(-2px);
+        }
+        .logo-item img {
+            max-height: 70px;
+            max-width: 120px;
+            object-fit: contain;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        .logo-item:hover img { opacity: 1; }
+        .logo-item .logo-caption {
+            font-size: 0.65rem;
+            color: var(--gray-300);
+            text-align: center;
+            margin-top: 10px;
+            line-height: 1.3;
+            display: none;
+        }
+        .logo-item:hover .logo-caption {
+            display: block;
+            color: var(--gray-500);
+        }
+        .show-more-btn {
+            display: block;
+            margin: 36px auto 0;
+            padding: 12px 32px;
+            background: transparent;
+            border: 1px solid var(--gray-300);
+            border-radius: 30px;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gray-500);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .show-more-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .logos-hidden { display: none; }
+        .logos-hidden.visible { display: grid; margin-top: 20px; }
 
-		<script>
-			document.addEventListener('DOMContentLoaded', function () {
-				const toggle = document.querySelector('.menu-toggle')
-				const menu = document.querySelector('.nav ul')
+        /* ===== CONTACT ===== */
+        .contact {
+            padding: 100px 0;
+            background: var(--navy);
+            position: relative;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-info .section-title { color: var(--white); }
+        .contact-info p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .contact-detail-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(201,168,76,0.1);
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+        .contact-detail-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+        }
+        .contact-detail-text h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+        .contact-detail-text p {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.7);
+            margin: 0;
+        }
+        .contact-details-centered {
+            display: inline-flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        /* ===== TEAM ===== */
+        .team {
+            padding: 100px 0;
+            background: var(--off-white);
+        }
+        .team-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .team-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 48px 32px 40px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+            border: 1px solid var(--gray-100);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+        .team-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--navy);
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+        .team-name {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        .team-title {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+        .team-desc {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
 
-				toggle.addEventListener('click', function () {
-					menu.classList.toggle('show')
-				})
-			})
-		</script>
-	</body>
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 30px 0;
+            background: #060e1a;
+            text-align: center;
+        }
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer p {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.3);
+        }
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+        .footer-links a {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.3);
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--gold); }
+
+        /* ===== SUBMARINE WATERMARK (subtle identity element) ===== */
+        .sub-watermark {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+            z-index: 50;
+        }
+        .sub-watermark.visible { opacity: 0.06; }
+        .sub-watermark svg { width: 140px; fill: var(--navy); }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .logos-grid { grid-template-columns: repeat(4, 1fr); }
+            .hero-stats { gap: 30px; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10,22,40,0.98);
+                padding: 20px 24px;
+                gap: 0;
+            }
+            .nav-links.open a {
+                padding: 14px 16px;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                display: block;
+            }
+            .nav-toggle { display: block; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-stats { flex-direction: column; gap: 20px; }
+            .hero-stats > div { display: flex; align-items: center; gap: 16px; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .philosophy-inner { flex-direction: column; }
+            .services-grid { grid-template-columns: 1fr; }
+            .logos-grid { grid-template-columns: repeat(3, 1fr); }
+            .contact-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; gap: 12px; }
+            .about-values { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .logos-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="nav-bar" id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">
+                <img src="img/logobyc2.png" alt="B&C">
+                <div class="nav-logo-text">Servicios Financieros</div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#acerca">Acerca de</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#transacciones">Transacciones</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-video-container">
+            <video autoplay muted loop playsinline>
+                <source src="video/video_web_ByC.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">Desde 1986</div>
+            <h1>Sigilo y <em>ejecución</em></h1>
+            <p class="hero-subtitle">
+                Banca de inversión independiente en Chile. Asesoramos a compañías,
+                grupos económicos e inversionistas privados en fusiones, adquisiciones, 
+                estructuración de negocios y reestructuración de balances.
+            </p>
+            <div class="hero-stats">
+                <div>
+                    <div class="hero-stat-number">40</div>
+                    <div class="hero-stat-label">Años de experiencia</div>
+                </div>
+                <div>
+                    <div class="hero-stat-number">US$10B+</div>
+                    <div class="hero-stat-label">En transacciones</div>
+                </div>
+                <div>
+                    <div class="hero-stat-number">M&A</div>
+                    <div class="hero-stat-label">Especialización</div>
+                </div>
+            </div>
+        </div>
+        <!-- Subtle submarine silhouette -->
+        <div class="hero-submarine">
+            <svg viewBox="0 0 800 250" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50,180 Q100,170 150,160 Q200,140 300,130 Q400,120 500,125 Q550,128 600,135 L650,120 L660,110 L680,115 L670,125 L660,130 Q700,140 730,155 Q750,165 760,180 Q765,195 750,205 Q700,220 600,225 Q500,228 400,225 Q300,222 200,215 Q150,210 100,200 Q60,192 50,180 Z M580,105 L590,70 L600,68 L595,105 M610,100 L615,75 L625,73 L620,100 M350,130 Q400,125 450,128 Q450,115 430,112 Q410,108 390,112 Q370,116 350,130 Z"/>
+            </svg>
+        </div>
+        <div class="hero-scroll">
+            <span>Explorar</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="acerca">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrap fade-in">
+                    <div class="about-image-accent"></div>
+                    <img src="img/magdalena181.png" alt="Oficinas B&C - Magdalena 181, Las Condes">
+                </div>
+                <div class="about-text fade-in">
+                    <div class="section-label">Acerca de B&C</div>
+                    <h2 class="section-title">Cuatro décadas<br>de excelencia financiera</h2>
+                    <div class="gold-line"></div>
+                    <p>
+                        Fundada en 1986, B&C Servicios Financieros S.A. es uno de los principales
+                        bancos de inversión independientes de Chile, con más de 40 años en el mercado
+                        ofreciendo asesoría financiera de primer nivel a compañías, grupos económicos
+                        e inversionistas privados.
+                    </p>
+                    <p>
+                        Desde nuestra fundación, hemos participado en transacciones por más de
+                        10 mil millones de dólares, consolidándonos como referente en el mercado
+                        de capitales chileno y latinoamericano.
+                    </p>
+                    <p>
+                        Fundamental para nuestro éxito ha sido la dedicación total del equipo, la calidad
+                        en la ejecución de las transacciones, y nuestros estándares de confidencialidad
+                        e independencia.
+                    </p>
+                    <div class="about-values">
+                        <div class="about-value">Confidencialidad</div>
+                        <div class="about-value">Independencia</div>
+                        <div class="about-value">Excelencia</div>
+                        <div class="about-value">Experiencia</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PHILOSOPHY (submarine tie-in) ===== -->
+    <section class="philosophy">
+        <div class="philosophy-bg-pattern"></div>
+        <div class="container">
+            <div class="philosophy-inner">
+                <div class="philosophy-text fade-in">
+                    <div class="section-label">Nuestra filosofía</div>
+                    <h2>"Sigilo y ejecución"</h2>
+                    <p>
+                        Como un submarino de clase Seawolf, operamos bajo la superficie: con precisión,
+                        discreción y una capacidad de ejecución que solo se revela en los resultados.
+                        En banca de inversión, la confidencialidad no es una opción, es el cimiento
+                        sobre el cual se construye cada transacción exitosa.
+                    </p>
+                </div>
+                <div class="philosophy-image fade-in">
+                    <img src="img/submarino2.png" alt="Seawolf Submarine - Sigilo y Ejecución">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="services-header fade-in">
+                <div class="section-label">Servicios</div>
+                <h2 class="section-title">M&A y Estructuración<br>de Negocios</h2>
+                <div class="gold-line center"></div>
+                <p>Ofrecemos un servicio integral de asesoría financiera, acompañando a nuestros clientes en cada etapa de la transacción.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    </div>
+                    <h3>Asesoría Estratégica</h3>
+                    <p>Acompañamiento integral en decisiones estratégicas de negocio.</p>
+                    <ul>
+                        <li>Asociaciones estratégicas</li>
+                        <li>Coordinación de asesoría legal y tributaria</li>
+                        <li>Opiniones de valor (fairness opinion)</li>
+                        <li>Evaluaciones de mercado y análisis financiero</li>
+                        <li>Búsqueda de oportunidades de mercado</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    </div>
+                    <h3>Fusiones y Adquisiciones</h3>
+                    <p>Gestión completa del proceso de M&A en mercado nacional e internacional.</p>
+                    <ul>
+                        <li>Identificación de potenciales inversionistas</li>
+                        <li>Estrategias de negociación y estructuración</li>
+                        <li>Due diligence, data room y visitas</li>
+                        <li>Negociación final, evaluación y cierre</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <h3>Estructuración de Capital</h3>
+                    <p>Soluciones de financiamiento y reestructuración.</p>
+                    <ul>
+                        <li>Análisis de necesidades de capital</li>
+                        <li>Estructura de capital (deuda/patrimonio)</li>
+                        <li>Reestructuración de pasivos</li>
+                        <li>Obtención de capital para proyectos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TRANSACTIONS ===== -->
+    <section class="transactions" id="transacciones">
+        <div class="container">
+            <div class="transactions-header fade-in">
+                <div class="section-label">Track Record</div>
+                <h2 class="section-title">Transacciones Relevantes</h2>
+                <div class="gold-line center"></div>
+                <p>B&C ha liderado algunas de las transacciones más emblemáticas del mercado chileno.</p>
+            </div>
+            <div class="transactions-highlights fade-in">
+                <div class="highlight-item">
+                    <div class="highlight-dot"></div>
+                    <p>Estructuración de la adquisición del <strong>Banco Santiago por parte del Grupo Luksic</strong>, el mismo grupo que adquiriría el <strong>Banco de Chile</strong> y fusionaría con la operación local de <strong>Citibank</strong>.</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-dot"></div>
+                    <p>Asesoría a la <strong>Familia Cueto</strong> en el proceso de privatización de <strong>Lan Airlines</strong>, hoy una de las principales aerolíneas del mundo.</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-dot"></div>
+                    <p>Asesoría a grupo formado por <strong>Chase Manhattan, Chilquinta y Aetna</strong> en la adquisición de <strong>ENTEL</strong>, empresa líder de telecomunicaciones en Chile.</p>
+                </div>
+            </div>
+            <div class="transactions-subtitle">Transacciones Destacadas</div>
+            <div class="logos-grid fade-in" id="logosMain">
+                <div class="logo-item"><img src="img/logos-transacciones/ccu.svg" alt="CCU"><span class="logo-caption">Adquisición de CCU</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/chilectra.svg" alt="Chilectra"><span class="logo-caption">Privatización Chilectra</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/citi.svg" alt="Citi"><span class="logo-caption">Asesoría a CVCI</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/virgin.svg" alt="Virgin"><span class="logo-caption">Virgin Mobile Latam</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/renault.svg" alt="Renault"><span class="logo-caption">Adquisición Renault</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/wbm.svg" alt="BMW/WBM"><span class="logo-caption">BMW AG - WBM</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/gap.svg" alt="GAP"><span class="logo-caption">Licencia Gap</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/tnf.svg" alt="The North Face"><span class="logo-caption">Licencia TNF</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/tattersall.svg" alt="Tattersall"><span class="logo-caption">Adquisición Tattersall</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/polo.svg" alt="Ralph Lauren"><span class="logo-caption">Licencia Polo RL</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/komax.svg" alt="Komax"><span class="logo-caption">Formación Komax</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/debt.svg" alt="Debt-to-equity"><span class="logo-caption">Conversión US$4B+</span></div>
+            </div>
+            <div class="logos-grid logos-hidden" id="logosMore">
+                <div class="logo-item"><img src="img/logos-transacciones/technosteel.svg" alt="Technosteel"><span class="logo-caption">Technosteel / Cintac</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/technal.svg" alt="Technal"><span class="logo-caption">Subsidiarias Technal</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/plavalaguna.svg" alt="Plava Laguna"><span class="logo-caption">Hoteles Plava Laguna</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/quimatic.svg" alt="Quimatic"><span class="logo-caption">Quimatic / Mathiesen</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/fosforos.svg" alt="Fosforos"><span class="logo-caption">Cia. Fosforera</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/peruggi.svg" alt="Peruggi"><span class="logo-caption">Adquisición Peruggi</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/national.svg" alt="National"><span class="logo-caption">National Airlines</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/matiesen.svg" alt="Mathiesen"><span class="logo-caption">Grupo Mathiesen</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/rebrisa.svg" alt="Rebrisa"><span class="logo-caption">Rebrisa / Fertica</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/rex.svg" alt="REX"><span class="logo-caption">Ladrillos REX</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/tiptop.svg" alt="Tip-Top"><span class="logo-caption">Galletas Tip-Top</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/bcointer.svg" alt="Banco Internacional"><span class="logo-caption">Banco Internacional</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/bresler.svg" alt="Bresler"><span class="logo-caption">Bresler / Lever Chile</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/maco.svg" alt="Maco"><span class="logo-caption">Maco Chile</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/madeco.svg" alt="Madeco"><span class="logo-caption">Madeco / Technal</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/laparva.svg" alt="La Parva"><span class="logo-caption">Ski La Parva</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/porvenir.svg" alt="Porvenir"><span class="logo-caption">Agua Mineral Porvenir</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/epasa.svg" alt="EPA"><span class="logo-caption">Formación EPA</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/epsa.svg" alt="EPSA"><span class="logo-caption">EPSA / Concha y Toro</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/qs.svg" alt="Quiksilver"><span class="logo-caption">Licencia Quiksilver</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/roxy.svg" alt="Roxy"><span class="logo-caption">Licencia Roxy</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/bb.svg" alt="Brooks Brothers"><span class="logo-caption">Brooks Brothers</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/oldnavy.svg" alt="Old Navy"><span class="logo-caption">Licencia Old Navy</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/ama.svg" alt="AMA"><span class="logo-caption">Greenvic / Ecus PE</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/andesgear.svg" alt="Andesgear"><span class="logo-caption">Andesgear</span></div>
+                <div class="logo-item"><img src="img/logos-transacciones/paul.svg" alt="Paul"><span class="logo-caption">Paul</span></div>
+            </div>
+            <button class="show-more-btn" id="showMoreBtn" onclick="toggleLogos()">Ver todas las transacciones</button>
+        </div>
+    </section>
+
+    <!-- ===== TEAM ===== -->
+    <section class="team" id="equipo">
+        <div class="container">
+            <div class="team-header fade-in">
+                <div class="section-label">Nuestro Equipo</div>
+                <h2 class="section-title">Liderazgo & Talento</h2>
+                <div class="gold-line center"></div>
+            </div>
+            <div class="team-grid">
+                <div class="team-card fade-in">
+                    <div class="team-avatar">CAC</div>
+                    <h3 class="team-name">Carlos Alberto Cartoni</h3>
+                    <div class="team-title">Socio Fundador & Director General</div>
+                </div>
+                <div class="team-card fade-in">
+                    <div class="team-avatar">JTC</div>
+                    <h3 class="team-name">José Tomás Cartoni</h3>
+                    <div class="team-title">Director de Desarrollo de Negocios</div>
+                </div>
+                <div class="team-card fade-in">
+                    <div class="team-avatar">TUA</div>
+                    <h3 class="team-name">Tomás Ubilla Arriagada</h3>
+                    <div class="team-title">Analista de Inversiones & Innovación Tecnológica</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info fade-in" style="text-align: center;">
+                    <div class="section-label">Contacto</div>
+                    <h2 class="section-title light">Conversemos</h2>
+                    <div class="gold-line center"></div>
+                    <p>Estamos disponibles para explorar cómo podemos ayudarle en sus próximas operaciones financieras.</p>
+                    <div class="contact-details-centered">
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            </div>
+                            <div class="contact-detail-text">
+                                <h4>Oficina</h4>
+                                <p>Magdalena 181, Oficina 1301<br>Las Condes, Santiago, Chile</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            </div>
+                            <div class="contact-detail-text">
+                                <h4>Teléfono</h4>
+                                <p>+56 2 2422 7700</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-detail-icon">
+                                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </div>
+                            <div class="contact-detail-text">
+                                <h4>Email</h4>
+                                <p>contacto@byc.cl</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <p>&copy; 2026 B&C Servicios Financieros S.A. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#acerca">Acerca de</a>
+                    <a href="#servicios">Servicios</a>
+                    <a href="#transacciones">Transacciones</a>
+                    <a href="#equipo">Equipo</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Active nav link
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY + 100;
+            const atBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 50);
+            // Clear all active states first
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+            if (atBottom) {
+                // At bottom of page, highlight the last nav link (Contacto)
+                const lastLink = document.querySelector('.nav-links a[href="#contacto"]');
+                if (lastLink) lastLink.classList.add('active');
+            } else {
+                let currentSection = '';
+                sections.forEach(section => {
+                    const top = section.offsetTop;
+                    if (scrollPos >= top) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                if (currentSection) {
+                    const link = document.querySelector(`.nav-links a[href="#${currentSection}"]`);
+                    if (link) link.classList.add('active');
+                }
+            }
+        });
+
+        // Show more logos
+        function toggleLogos() {
+            const more = document.getElementById('logosMore');
+            const btn = document.getElementById('showMoreBtn');
+            more.classList.toggle('visible');
+            btn.textContent = more.classList.contains('visible')
+                ? 'Ver menos'
+                : 'Ver todas las transacciones';
+        }
+
+        // Submarine watermark on scroll
+        const subWatermark = document.querySelector('.sub-watermark');
+        if (subWatermark) {
+            window.addEventListener('scroll', () => {
+                subWatermark.classList.toggle('visible', window.scrollY > 300);
+            });
+        }
+    </script>
+</body>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
