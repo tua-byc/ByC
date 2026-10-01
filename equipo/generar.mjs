@@ -99,7 +99,7 @@ function fila({ href, ico, etiqueta, valor, accion, copiar, externo }) {
       <li class="fila">
         <a class="fila-link" href="${escHtml(href)}"${ext}>
           <span class="fila-ico">${icono(ico)}</span>
-          <span class="fila-txt"><span class="fila-etq">${escHtml(etiqueta)}</span><span class="fila-val">${escHtml(valor)}</span>${acc}</span>${flecha}
+          <span class="fila-txt"><span class="fila-etq">${escHtml(etiqueta)}</span>${valor ? `<span class="fila-val">${escHtml(valor)}</span>` : ''}${acc}</span>${flecha}
         </a>${btn}
       </li>`;
 }
@@ -217,7 +217,7 @@ ${MARCA}
     <ul class="lista">${[
       fila({ href: `tel:${tel}`, ico: 'tel', etiqueta: 'Celular', valor: telVisible, copiar: tel }),
       fila({ href: `mailto:${p.email}`, ico: 'mail', etiqueta: 'Email', valor: p.email, copiar: p.email }),
-      fila({ href: `https://wa.me/${tel.replace('+', '')}`, ico: 'wa', etiqueta: 'WhatsApp', valor: telVisible, accion: 'Abrir chat en WhatsApp', externo: true }),
+      fila({ href: `https://wa.me/${tel.replace('+', '')}`, ico: 'wa', etiqueta: 'WhatsApp', accion: 'Abrir chat en WhatsApp', externo: true }),
       fila({ href: oficina.maps, ico: 'pin', etiqueta: 'Oficina', valor: `${oficina.direccion}, ${oficina.comuna}`, accion: 'Ver en Google Maps', externo: true }),
     ].join('')}
     </ul>
