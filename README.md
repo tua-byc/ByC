@@ -13,7 +13,8 @@ Estas páginas tienen `noindex` y no aparecen en el menú.
 
 Para sumar a alguien:
 
-1. Agregar la persona en `equipo/equipo.json` (`nombre`, `apellido`, `celular` en formato `+569...`, `email`, `cargo` opcional).
+1. Agregar la persona en `equipo/equipo.json` (`nombre`, `apellido`, `celular` en formato `+569...`, `email`; opcionales: `apellido2` y `cargo`).
+   `apellido2` (materno) se muestra en la página y en el contacto, pero no entra en la URL.
 2. Generar:
    ```bash
    npm install   # solo la primera vez
@@ -21,6 +22,6 @@ Para sumar a alguien:
    ```
 3. Revisar y hacer commit de `public/<slug>/` y `equipo/qr/<slug>.svg`.
 
-El QR para la imprenta queda en `equipo/qr/<slug>.svg`. El slug se arma con nombre y apellido sin tildes
-(ej. `tomas-ubilla`); si dos personas coinciden, agregar un campo `"slug"` distinto en el JSON.
+El QR para la imprenta queda en `equipo/qr/<slug>.svg`. El slug se arma con nombre(s) y primer apellido sin tildes
+(ej. `tomas-ubilla`, `jose-tomas-cartoni`); si dos personas coinciden, agregar un campo `"slug"` distinto en el JSON.
 Para quitar a alguien, borrarlo del JSON y eliminar a mano su carpeta en `public/` y su QR (el script avisa).

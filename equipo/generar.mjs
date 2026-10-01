@@ -32,6 +32,10 @@ const escHtml = (s) =>
 // Escape de valores vCard 3.0 (RFC 2426): \ , ; y saltos de línea
 const escVcf = (s) => String(s).replace(/\\/g, '\\\\').replace(/,/g, '\\,').replace(/;/g, '\\;').replace(/\r?\n/g, '\\n');
 
+// apellido2 (materno) es opcional: se muestra en la página y la vCard, pero no entra en la URL
+const apellidos = (p) => [p.apellido, p.apellido2].filter(Boolean).join(' ');
+const nombreCompleto = (p) => `${p.nombre} ${apellidos(p)}`;
+
 // +56940512777 -> +56 9 4051 2777 (celular chileno); otros formatos quedan tal cual
 function formatearCelular(tel) {
   const d = tel.replace(/[^\d+]/g, '');
@@ -55,8 +59,8 @@ function vcard(p, url) {
   const lineas = [
     'BEGIN:VCARD',
     'VERSION:3.0',
-    `N;CHARSET=UTF-8:${escVcf(p.apellido)};${escVcf(p.nombre)};;;`,
-    `FN;CHARSET=UTF-8:${escVcf(`${p.nombre} ${p.apellido}`)}`,
+    `N;CHARSET=UTF-8:${escVcf(apellidos(p))};${escVcf(p.nombre)};;;`,
+    `FN;CHARSET=UTF-8:${escVcf(nombreCompleto(p))}`,
     `ORG;CHARSET=UTF-8:${escVcf(empresa)}`,
     p.cargo ? `TITLE;CHARSET=UTF-8:${escVcf(p.cargo)}` : null,
     `TEL;TYPE=CELL,VOICE:${p.celular.replace(/\s/g, '')}`,
@@ -97,7 +101,7 @@ function fila({ href, ico, etiqueta, valor, copiar, externo }) {
 }
 
 function pagina(p, slug) {
-  const nombre = `${p.nombre} ${p.apellido}`;
+  const nombre = nombreCompleto(p);
   const tel = p.celular.replace(/\s/g, '');
   const telVisible = formatearCelular(tel);
   const vcf = `/${slug}/${slug}.vcf`;

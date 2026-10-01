@@ -1,7 +1,7 @@
 BEGIN:VCARD
 VERSION:3.0
-N;CHARSET=UTF-8:Ubilla;Tomás;;;
-FN;CHARSET=UTF-8:Tomás Ubilla
+N;CHARSET=UTF-8:Ubilla Arriagada;Tomás;;;
+FN;CHARSET=UTF-8:Tomás Ubilla Arriagada
 ORG;CHARSET=UTF-8:ByC Servicios Financieros
 TEL;TYPE=CELL,VOICE:+56940512777
 EMAIL;TYPE=INTERNET,WORK:tua@byc.cl

@@ -12,8 +12,23 @@
     {
       "nombre": "Tomás",
       "apellido": "Ubilla",
+      "apellido2": "Arriagada",
       "celular": "+56940512777",
       "email": "tua@byc.cl",
+      "cargo": ""
+    },
+    {
+      "nombre": "José Tomás",
+      "apellido": "Cartoni",
+      "celular": "+56998291797",
+      "email": "jtc@byc.cl",
+      "cargo": ""
+    },
+    {
+      "nombre": "Carlos Alberto",
+      "apellido": "Cartoni",
+      "celular": "+56998210165",
+      "email": "cac@byc.cl",
       "cargo": ""
     }
   ]

@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N;CHARSET=UTF-8:Cartoni;José Tomás;;;
+FN;CHARSET=UTF-8:José Tomás Cartoni
+ORG;CHARSET=UTF-8:ByC Servicios Financieros
+TEL;TYPE=CELL,VOICE:+56998291797
+EMAIL;TYPE=INTERNET,WORK:jtc@byc.cl
+ADR;TYPE=WORK;CHARSET=UTF-8:;;Magdalena 181\, Of. 1301;Las Condes;Región Metropolitana;;Chile
+URL:https://byc.cl/jose-tomas-cartoni
+END:VCARD
