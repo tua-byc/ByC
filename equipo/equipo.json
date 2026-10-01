@@ -1,0 +1,20 @@
+{
+  "sitio": "https://byc.cl",
+  "empresa": "ByC Servicios Financieros",
+  "oficina": {
+    "direccion": "Magdalena 181, Of. 1301",
+    "comuna": "Las Condes",
+    "region": "Región Metropolitana",
+    "pais": "Chile",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Magdalena+181%2C+Las+Condes%2C+Santiago%2C+Chile"
+  },
+  "equipo": [
+    {
+      "nombre": "Tomás",
+      "apellido": "Ubilla",
+      "celular": "+56940512777",
+      "email": "tua@byc.cl",
+      "cargo": ""
+    }
+  ]
+}

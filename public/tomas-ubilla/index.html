@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!-- generado por equipo/generar.mjs -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0A1628">
+  <title>Tomás Ubilla | ByC Servicios Financieros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0A1628;
+      --acento: #2C4A6E;
+      --acento-suave: #e9eef4;
+      --texto: #1f2937;
+      --gris: #6b7280;
+      --borde: #e5e7eb;
+      --fondo: #f4f5f7;
+      --serif: 'Cormorant Garamond', Garamond, Georgia, serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-family: var(--sans); color: var(--texto); background: var(--fondo); min-height: 100vh; line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+
+    .cabecera {
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+      padding: calc(48px + env(safe-area-inset-top)) 24px 72px;
+    }
+    .logo { width: 104px; height: auto; display: block; margin: 0 auto 32px; }
+    .nombre { font-family: var(--serif); font-weight: 600; font-size: 2.4rem; line-height: 1.1; letter-spacing: .3px; }
+    .cargo { margin-top: 8px; font-size: .95rem; color: rgba(255,255,255,.8); }
+    .empresa { margin-top: 14px; font-size: .68rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.6); }
+
+    .contenido { max-width: 440px; margin: -40px auto 0; padding: 0 16px calc(32px + env(safe-area-inset-bottom)); }
+    .guardar {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; min-height: 56px; border-radius: 10px;
+      background: var(--acento); color: #fff;
+      font-size: 1rem; font-weight: 600; letter-spacing: .2px;
+      box-shadow: 0 8px 24px rgba(10,22,40,.22);
+      transition: background .2s;
+    }
+    .guardar:hover, .guardar:active { background: #24405f; }
+    .guardar .ico { width: 20px; height: 20px; }
+
+    .lista { list-style: none; margin-top: 16px; background: #fff; border-radius: 10px; border: 1px solid var(--borde); overflow: hidden; }
+    .fila { display: flex; align-items: center; border-top: 1px solid var(--borde); }
+    .fila:first-child { border-top: 0; }
+    .fila-link { flex: 1; display: flex; align-items: center; gap: 14px; padding: 14px 16px; min-width: 0; min-height: 64px; }
+    .fila-link:active { background: var(--fondo); }
+    .fila-ico { flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--acento-suave); color: var(--acento); display: grid; place-items: center; }
+    .ico { width: 18px; height: 18px; }
+    .fila-txt { display: flex; flex-direction: column; min-width: 0; }
+    .fila-etq { font-size: .7rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gris); }
+    .fila-val { font-size: .98rem; color: var(--navy); overflow-wrap: anywhere; }
+
+    .copiar {
+      flex: none; width: 48px; height: 48px; margin-right: 8px; border: 0; border-radius: 8px;
+      background: transparent; color: var(--acento); display: grid; place-items: center; cursor: pointer;
+      font: inherit;
+    }
+    .copiar:active { background: var(--acento-suave); }
+    .copiar .ico-ok { display: none; }
+    .copiar.ok .ico { display: none; }
+    .copiar.ok .ico-ok { display: block; }
+
+    .aviso {
+      position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom));
+      transform: translate(-50%, 16px); opacity: 0; pointer-events: none;
+      background: var(--navy); color: #fff; font-size: .88rem; padding: 10px 18px; border-radius: 999px;
+      transition: opacity .2s, transform .2s;
+    }
+    .aviso.visible { opacity: 1; transform: translate(-50%, 0); }
+
+    .pie { text-align: center; margin-top: 28px; font-size: .8rem; color: var(--gris); }
+    .pie a { color: var(--acento); font-weight: 500; }
+
+    @media (min-width: 600px) {
+      .cabecera { padding-top: 64px; }
+      .nombre { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="cabecera">
+    <img class="logo" src="/img/logo-byc-blanco-320.png" alt="B&amp;C" width="320" height="228">
+    <h1 class="nombre">Tomás Ubilla</h1>
+    <p class="empresa">ByC Servicios Financieros</p>
+  </header>
+
+  <main class="contenido">
+    <a class="guardar" href="/tomas-ubilla/tomas-ubilla.vcf"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>Guardar contacto</a>
+
+    <ul class="lista">
+      <li class="fila">
+        <a class="fila-link" href="tel:+56940512777">
+          <span class="fila-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <span class="fila-txt"><span class="fila-etq">Celular</span><span class="fila-val">+56 9 4051 2777</span></span>
+        </a><button type="button" class="copiar" data-copiar="+56940512777" aria-label="Copiar celular"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="ico ico-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></button>
+      </li>
+      <li class="fila">
+        <a class="fila-link" href="mailto:tua@byc.cl">
+          <span class="fila-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+          <span class="fila-txt"><span class="fila-etq">Email</span><span class="fila-val">tua@byc.cl</span></span>
+        </a><button type="button" class="copiar" data-copiar="tua@byc.cl" aria-label="Copiar email"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><svg class="ico ico-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></button>
+      </li>
+      <li class="fila">
+        <a class="fila-link" href="https://wa.me/56940512777" target="_blank" rel="noopener">
+          <span class="fila-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg></span>
+          <span class="fila-txt"><span class="fila-etq">WhatsApp</span><span class="fila-val">Enviar mensaje</span></span>
+        </a>
+      </li>
+      <li class="fila">
+        <a class="fila-link" href="https://www.google.com/maps/search/?api=1&amp;query=Magdalena+181%2C+Las+Condes%2C+Santiago%2C+Chile" target="_blank" rel="noopener">
+          <span class="fila-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="fila-txt"><span class="fila-etq">Oficina</span><span class="fila-val">Magdalena 181, Of. 1301, Las Condes</span></span>
+        </a>
+      </li>
+    </ul>
+
+    <p class="pie"><a href="/">byc.cl</a></p>
+  </main>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      var aviso = document.getElementById('aviso');
+      var timer;
+      function mostrar(msg) {
+        aviso.textContent = msg;
+        aviso.classList.add('visible');
+        clearTimeout(timer);
+        timer = setTimeout(function () { aviso.classList.remove('visible'); }, 1800);
+      }
+      function copiarFallback(texto) {
+        var t = document.createElement('textarea');
+        t.value = texto;
+        t.setAttribute('readonly', '');
+        t.style.position = 'fixed';
+        t.style.opacity = '0';
+        document.body.appendChild(t);
+        t.select();
+        t.setSelectionRange(0, texto.length);
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(t);
+        return ok;
+      }
+      document.querySelectorAll('[data-copiar]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var texto = btn.getAttribute('data-copiar');
+          function listo() {
+            btn.classList.add('ok');
+            mostrar('Copiado');
+            setTimeout(function () { btn.classList.remove('ok'); }, 1800);
+          }
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(texto).then(listo, function () {
+              copiarFallback(texto) ? listo() : mostrar('No se pudo copiar');
+            });
+          } else {
+            copiarFallback(texto) ? listo() : mostrar('No se pudo copiar');
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
