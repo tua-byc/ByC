@@ -1,0 +1,11 @@
+{
+  "name": "byc-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generar": "node equipo/generar.mjs"
+  },
+  "devDependencies": {
+    "qrcode": "^1.5.4"
+  }
+}

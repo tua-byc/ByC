@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N;CHARSET=UTF-8:Cartoni;Carlos Alberto;;;
+FN;CHARSET=UTF-8:Carlos Alberto Cartoni
+ORG;CHARSET=UTF-8:ByC Servicios Financieros
+TEL;TYPE=CELL,VOICE:+56998210165
+EMAIL;TYPE=INTERNET,WORK:cac@byc.cl
+ADR;TYPE=WORK;CHARSET=UTF-8:;;Magdalena 181\, Of. 1301;Las Condes;Región Metropolitana;;Chile
+URL:https://byc.cl/carlos-alberto-cartoni
+END:VCARD
