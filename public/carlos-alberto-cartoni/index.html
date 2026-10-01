@@ -60,6 +60,9 @@
     .fila-txt { display: flex; flex-direction: column; min-width: 0; }
     .fila-etq { font-size: .7rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gris); }
     .fila-val { font-size: .98rem; color: var(--navy); overflow-wrap: anywhere; }
+    .fila-acc { margin-top: 2px; font-size: .88rem; font-weight: 600; color: var(--acento); }
+    .fila-flecha { flex: none; margin-left: auto; width: 32px; height: 32px; border-radius: 50%; background: var(--acento); color: #fff; display: grid; place-items: center; }
+    .fila-flecha .ico { width: 16px; height: 16px; stroke-width: 2; }
 
     .copiar {
       flex: none; width: 48px; height: 48px; margin-right: 8px; border: 0; border-radius: 8px;
@@ -114,13 +117,13 @@
       <li class="fila">
         <a class="fila-link" href="https://wa.me/56998210165" target="_blank" rel="noopener">
           <span class="fila-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg></span>
-          <span class="fila-txt"><span class="fila-etq">WhatsApp</span><span class="fila-val">Enviar mensaje</span></span>
+          <span class="fila-txt"><span class="fila-etq">WhatsApp</span><span class="fila-val">+56 9 9821 0165</span><span class="fila-acc">Abrir chat en WhatsApp</span></span><span class="fila-flecha"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
       </li>
       <li class="fila">
         <a class="fila-link" href="https://www.google.com/maps/search/?api=1&amp;query=Magdalena+181%2C+Las+Condes%2C+Santiago%2C+Chile" target="_blank" rel="noopener">
           <span class="fila-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-          <span class="fila-txt"><span class="fila-etq">Oficina</span><span class="fila-val">Magdalena 181, Of. 1301, Las Condes</span></span>
+          <span class="fila-txt"><span class="fila-etq">Oficina</span><span class="fila-val">Magdalena 181, Of. 1301, Las Condes</span><span class="fila-acc">Ver en Google Maps</span></span><span class="fila-flecha"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
         </a>
       </li>
     </ul>

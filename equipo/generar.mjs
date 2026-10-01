@@ -81,21 +81,25 @@ const ICONOS = {
   pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>',
   copiar: '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
   ok: '<path d="M20 6 9 17l-5-5"/>',
+  abrir: '<path d="M7 17 17 7M8 7h9v9"/>',
   guardar: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/>',
 };
 const icono = (n, cls = 'ico') =>
   `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONOS[n]}</svg>`;
 
-function fila({ href, ico, etiqueta, valor, copiar, externo }) {
+// `accion` agrega una línea en color de acento y una flecha al final, para que se note que la fila abre otra app
+function fila({ href, ico, etiqueta, valor, accion, copiar, externo }) {
   const ext = externo ? ' target="_blank" rel="noopener"' : '';
   const btn = copiar
     ? `<button type="button" class="copiar" data-copiar="${escHtml(copiar)}" aria-label="Copiar ${escHtml(etiqueta.toLowerCase())}">${icono('copiar')}${icono('ok', 'ico ico-ok')}</button>`
     : '';
+  const acc = accion ? `<span class="fila-acc">${escHtml(accion)}</span>` : '';
+  const flecha = accion ? `<span class="fila-flecha">${icono('abrir')}</span>` : '';
   return `
       <li class="fila">
         <a class="fila-link" href="${escHtml(href)}"${ext}>
           <span class="fila-ico">${icono(ico)}</span>
-          <span class="fila-txt"><span class="fila-etq">${escHtml(etiqueta)}</span><span class="fila-val">${escHtml(valor)}</span></span>
+          <span class="fila-txt"><span class="fila-etq">${escHtml(etiqueta)}</span><span class="fila-val">${escHtml(valor)}</span>${acc}</span>${flecha}
         </a>${btn}
       </li>`;
 }
@@ -168,6 +172,9 @@ ${MARCA}
     .fila-txt { display: flex; flex-direction: column; min-width: 0; }
     .fila-etq { font-size: .7rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gris); }
     .fila-val { font-size: .98rem; color: var(--navy); overflow-wrap: anywhere; }
+    .fila-acc { margin-top: 2px; font-size: .88rem; font-weight: 600; color: var(--acento); }
+    .fila-flecha { flex: none; margin-left: auto; width: 32px; height: 32px; border-radius: 50%; background: var(--acento); color: #fff; display: grid; place-items: center; }
+    .fila-flecha .ico { width: 16px; height: 16px; stroke-width: 2; }
 
     .copiar {
       flex: none; width: 48px; height: 48px; margin-right: 8px; border: 0; border-radius: 8px;
@@ -210,8 +217,8 @@ ${MARCA}
     <ul class="lista">${[
       fila({ href: `tel:${tel}`, ico: 'tel', etiqueta: 'Celular', valor: telVisible, copiar: tel }),
       fila({ href: `mailto:${p.email}`, ico: 'mail', etiqueta: 'Email', valor: p.email, copiar: p.email }),
-      fila({ href: `https://wa.me/${tel.replace('+', '')}`, ico: 'wa', etiqueta: 'WhatsApp', valor: 'Enviar mensaje', externo: true }),
-      fila({ href: oficina.maps, ico: 'pin', etiqueta: 'Oficina', valor: `${oficina.direccion}, ${oficina.comuna}`, externo: true }),
+      fila({ href: `https://wa.me/${tel.replace('+', '')}`, ico: 'wa', etiqueta: 'WhatsApp', valor: telVisible, accion: 'Abrir chat en WhatsApp', externo: true }),
+      fila({ href: oficina.maps, ico: 'pin', etiqueta: 'Oficina', valor: `${oficina.direccion}, ${oficina.comuna}`, accion: 'Ver en Google Maps', externo: true }),
     ].join('')}
     </ul>
 
