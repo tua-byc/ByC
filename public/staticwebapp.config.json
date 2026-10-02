@@ -1,5 +1,17 @@
 {
   "mimeTypes": {
     ".vcf": "text/vcard"
-  }
+  },
+  "routes": [
+    {
+      "route": "/carlos-alberto-cartoni",
+      "redirect": "/carlos-cartoni",
+      "statusCode": 301
+    },
+    {
+      "route": "/carlos-alberto-cartoni/*",
+      "redirect": "/carlos-cartoni",
+      "statusCode": 301
+    }
+  ]
 }
