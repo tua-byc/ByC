@@ -5,6 +5,7 @@ ByC PROD — sitio estático de byc.cl en Azure Static Web Apps.
 
 - `public/` — **lo único que se publica** (el workflow usa `app_location: "public"`). Para editar la web se trabaja aquí.
 - `equipo/` — datos, script y QR de las tarjetas de presentación. **No se publica.**
+- `presentaciones/` — sitio privado **presentaciones.byc.cl** en Netlify (base directory del proyecto byc-presentaciones), con acceso por código y seguimiento en Supabase. No se publica en Azure. Ver `presentaciones/README.md`.
 
 ## Páginas de contacto del equipo (QR de tarjetas)
 
