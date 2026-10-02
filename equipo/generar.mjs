@@ -32,9 +32,14 @@ const escHtml = (s) =>
 // Escape de valores vCard 3.0 (RFC 2426): \ , ; y saltos de línea
 const escVcf = (s) => String(s).replace(/\\/g, '\\\\').replace(/,/g, '\\,').replace(/;/g, '\\;').replace(/\r?\n/g, '\\n');
 
-// apellido2 (materno) es opcional: se muestra en la página y la vCard, pero no entra en la URL
+// Nombres (segundoNombre y apellido2 son opcionales):
+//   - página y tarjeta: nombre + inicial del segundo nombre + apellido + inicial del materno ("Carlos A. Cartoni Z.")
+//   - contacto del celular: nombre completo ("Carlos Alberto Cartoni Zalaquett")
+//   - URL: nombre + apellido ("carlos-cartoni")
+const inicial = (s) => (s ? `${s.trim()[0].toUpperCase()}.` : '');
 const apellidos = (p) => [p.apellido, p.apellido2].filter(Boolean).join(' ');
-const nombreCompleto = (p) => `${p.nombre} ${apellidos(p)}`;
+const nombreCompleto = (p) => [p.nombre, p.segundoNombre, apellidos(p)].filter(Boolean).join(' ');
+const nombreTarjeta = (p) => [p.nombre, inicial(p.segundoNombre), p.apellido, inicial(p.apellido2)].filter(Boolean).join(' ');
 
 // +56940512777 -> +56 9 4051 2777 (celular chileno); otros formatos quedan tal cual
 function formatearCelular(tel) {
@@ -59,7 +64,7 @@ function vcard(p, url) {
   const lineas = [
     'BEGIN:VCARD',
     'VERSION:3.0',
-    `N;CHARSET=UTF-8:${escVcf(apellidos(p))};${escVcf(p.nombre)};;;`,
+    `N;CHARSET=UTF-8:${escVcf(apellidos(p))};${escVcf(p.nombre)};${escVcf(p.segundoNombre || '')};;`,
     `FN;CHARSET=UTF-8:${escVcf(nombreCompleto(p))}`,
     `ORG;CHARSET=UTF-8:${escVcf(empresa)}`,
     p.cargo ? `TITLE;CHARSET=UTF-8:${escVcf(p.cargo)}` : null,
@@ -105,7 +110,7 @@ function fila({ href, ico, etiqueta, valor, accion, copiar, externo }) {
 }
 
 function pagina(p, slug) {
-  const nombre = nombreCompleto(p);
+  const nombre = nombreTarjeta(p);
   const tel = p.celular.replace(/\s/g, '');
   const telVisible = formatearCelular(tel);
   const vcf = `/${slug}/${slug}.vcf`;

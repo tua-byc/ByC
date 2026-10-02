@@ -1,8 +1,8 @@
 BEGIN:VCARD
 VERSION:3.0
-N;CHARSET=UTF-8:Ubilla Arriagada;Tomás;;;
-FN;CHARSET=UTF-8:Tomás Ubilla Arriagada
-ORG;CHARSET=UTF-8:ByC Servicios Financieros
+N;CHARSET=UTF-8:Ubilla Arriagada;Tomás;Andrés;;
+FN;CHARSET=UTF-8:Tomás Andrés Ubilla Arriagada
+ORG;CHARSET=UTF-8:B&C Servicios Financieros
 TEL;TYPE=CELL,VOICE:+56940512777
 EMAIL;TYPE=INTERNET,WORK:tua@byc.cl
 ADR;TYPE=WORK;CHARSET=UTF-8:;;Magdalena 181\, Of. 1301;Las Condes;Región Metropolitana;;Chile
