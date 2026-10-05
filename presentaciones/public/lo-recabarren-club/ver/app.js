@@ -36,6 +36,8 @@
     A: { tir: 13.3, tireq: 17.5, ut: 145, plazo: '7–9' },
     B: { tir: 11.6, tireq: 14.8, ut: 144, plazo: '8–12' }
   };
+  /* Deuda: % del terreno y de la obra financiado a UF + 4,4% (motor v4, paño a 17,5; 0–60% cada 5) */
+  var DEUDA = {"A":{"t":[13.272,13.563,13.874,14.209,14.57,14.961,15.386,15.849,16.358,16.92,17.546,18.308,19.176],"ut":[144.8,143.4,142.0,140.6,139.3,137.9,136.5,135.1,133.7,132.4,131.0,129.4,127.9],"debt":[0.0,11.6,23.2,34.8,46.4,58.0,69.6,81.2,92.8,104.4,116.0,127.6,139.3],"it":[0.0,1.4,2.8,4.1,5.5,6.9,8.3,9.6,11.0,12.4,13.8,15.3,16.9],"ce":[[55.93,60.32,59.17,34.3],[53.03,57.17,56.17,32.77],[50.13,54.03,53.16,31.23],[47.22,50.88,50.16,29.7],[44.32,47.73,47.16,28.17],[41.42,44.59,44.15,26.63],[38.52,41.44,41.15,25.1],[35.62,38.29,38.15,23.57],[32.72,37.42,35.14,22.03],[30.97,37.0,32.14,20.5],[30.2,36.44,31.2,20.07],[29.43,32.3,30.54,19.77],[28.67,28.16,29.88,19.47]],"cl":[[27.97,26.49,28.86,17.15],[26.57,25.16,27.42,16.3],[25.17,23.84,25.97,15.44],[23.78,22.51,24.53,14.58],[22.38,21.19,23.09,13.72],[20.98,19.86,21.65,12.87],[19.58,18.54,20.2,12.01],[18.18,17.22,18.76,11.15],[16.78,15.89,17.32,10.29],[15.38,14.57,15.87,9.43],[13.99,13.24,14.43,8.58],[12.59,11.92,12.99,7.72],[11.19,10.59,11.54,6.86]]},"B":{"t":[11.593,11.817,12.057,12.313,12.589,12.886,13.208,13.557,13.938,14.355,14.815,15.339,15.983],"ut":[144.2,142.7,141.2,139.7,138.2,136.8,135.3,133.8,132.3,130.8,129.3,127.7,126.0],"debt":[0.0,10.5,21.1,31.6,42.1,52.6,63.2,73.7,84.2,94.8,105.3,115.8,126.3],"it":[0.0,1.5,3.0,4.5,6.0,7.5,9.0,10.5,12.0,13.5,15.0,16.5,18.2],"ce":[[53.43,60.33,52.39,33.23],[50.82,57.35,49.88,31.8],[48.22,54.37,47.36,30.37],[45.61,51.4,44.85,28.95],[43.0,48.42,42.34,27.52],[40.4,45.44,39.82,26.1],[37.79,42.46,37.31,24.67],[35.18,39.48,34.79,23.24],[32.58,36.51,32.28,21.82],[29.97,35.26,29.76,20.39],[28.01,34.73,27.25,19.18],[27.23,33.49,24.73,18.88],[26.45,29.52,23.81,18.58]],"cl":[[27.55,28.08,27.59,17.25],[26.17,26.68,26.21,16.39],[24.79,25.27,24.83,15.53],[23.41,23.87,23.45,14.66],[22.04,22.47,22.07,13.8],[20.66,21.06,20.69,12.94],[19.28,19.66,19.31,12.08],[17.91,18.25,17.94,11.21],[16.53,16.85,16.56,10.35],[15.15,15.44,15.18,9.49],[13.77,14.04,13.8,8.63],[12.4,12.64,12.42,7.76],[11.02,11.23,11.04,6.9]]}};
   var VALOR = [
     { l: 'Un dueño · programa base', s: 'Mezcla optimizada para un dueño, con venta de macrolotes · termina en 2037', v: 17.3 },
     { l: 'Un dueño · mezcla del club', s: 'Los cuatro productos, un lote de deptos tras otro · termina en 2045', d: '−2,1', v: 15.2 },
@@ -306,27 +308,89 @@
     });
   }
 
+  // 3. TIR de cada socio según la deuda
+  function gDeuda() {
+    var box = $('#ch-deuda'); if (!box || !box.clientWidth) return;
+    if (!$('.legend', box)) {
+      var lg = document.createElement('div'); lg.className = 'legend';
+      lg.innerHTML = '<span><i style="background:' + C('--s1') + '"></i>Escenario favorable</span>' +
+                     '<span><i style="background:' + C('--s2') + '"></i>Escenario conservador</span>';
+      box.appendChild(lg);
+    }
+    var L = lienzo(box, 220), m = { l: 34, r: 46, t: 12, b: 28 };
+    var g = el('g', {}, L.svg);
+    var x = function (p) { return m.l + p / 60 * (L.w - m.l - m.r); };
+    var y = function (v) { return m.t + (1 - (v - 10) / (20 - 10)) * (L.h - m.t - m.b); };
+    [10, 12, 14, 16, 18, 20].forEach(function (v) {
+      el('line', { x1: m.l, x2: L.w - m.r, y1: y(v), y2: y(v), class: v === 10 ? 'base' : 'grid' }, g);
+      el('text', { x: m.l - 8, y: y(v) + 3.5, 'text-anchor': 'end', class: 'ax' }, g, v + '%');
+    });
+    [0, 10, 20, 30, 40, 50, 60].forEach(function (p) {
+      el('text', { x: x(p), y: L.h - m.b + 17, 'text-anchor': 'middle', class: 'ax' }, g, p + '%');
+    });
+    el('rect', { x: x(50), y: m.t, width: x(60) - x(50), height: L.h - m.t - m.b, fill: C('--muted'), opacity: 0.06 }, g);
+    if (L.w >= 480) el('text', { x: (x(50) + x(60)) / 2, y: L.h - m.b - 8, 'text-anchor': 'middle', class: 'ax' }, g, 'Referencial');
+    var pct = nivel * 5;
+    el('line', { x1: x(pct), x2: x(pct), y1: m.t, y2: L.h - m.b, stroke: C('--gold'), 'stroke-width': 1.2, 'stroke-dasharray': '3 3' }, g);
+    [['A', C('--s1')], ['B', C('--s2')]].forEach(function (s) {
+      var t = DEUDA[s[0]].t, act = s[0] === casoAct;
+      var d = t.map(function (v, i) { return (i ? 'L' : 'M') + x(i * 5).toFixed(1) + ',' + y(v).toFixed(1); }).join('');
+      el('path', { d: d, fill: 'none', stroke: s[1], 'stroke-width': act ? 2.4 : 1.6, opacity: act ? 1 : 0.45,
+                   'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, g);
+      el('circle', { cx: x(pct), cy: y(t[nivel]), r: act ? 5 : 4, fill: s[1], stroke: C('--surface'), 'stroke-width': 2, opacity: act ? 1 : 0.6 }, g);
+      var arriba = s[0] === 'A';
+      el('text', { x: x(pct) + (pct > 45 ? -10 : 10), y: y(t[nivel]) + (arriba ? -10 : 16), 'text-anchor': pct > 45 ? 'end' : 'start',
+                   class: 'val', opacity: act ? 1 : 0.6 }, g, fmt(t[nivel], 1) + '%');
+    });
+  }
+
   /* ── Tablas y selector de caso ─────────────────────────────────────────── */
   function lotCell(L, corto) { return '<span class="ln" style="--c:var(' + L.c + ')">' + L.n + '</span>' + (corto ? L.s : L.t); }
   function setFig(id, v, dec, unit) { var f = $(id); f.innerHTML = (typeof v === 'number' ? fmt(v, dec) : v) + '<span class="u">' + unit + '</span>'; }
+  var casoAct = 'B', nivel = 10; // índice en DEUDA (0–60% cada 5) → 10 = 50%
+  var rango = function (arr) {
+    var lo = Math.min.apply(null, arr), hi = Math.max.apply(null, arr);
+    return fmt(lo, 0) + '–' + fmt(hi, 0);
+  };
   function caso(k) {
-    var cs = CASO[k];
-    setFig('#f-tir', cs.tir, 1, '%'); setFig('#f-tireq', cs.tireq, 1, '%');
-    setFig('#f-util', cs.ut, 0, 'MM US$'); setFig('#f-plazo', cs.plazo, 0, 'años');
+    casoAct = k;
+    var cs = CASO[k], D = DEUDA[k], i = nivel, pct = i * 5;
+    setFig('#f-tir', cs.tir, 1, '%');
+    setFig('#f-tireq', D.t[i], 1, '%');
+    $('#f-tireq-l').textContent = pct ? 'Con deuda del ' + pct + '% de obra y terreno, a UF + 4,4%' : 'Sin deuda: igual a la TIR del proyecto';
+    setFig('#f-util', D.ut[i], 0, 'MM US$');
+    $('#f-util-l').textContent = pct ? 'Utilidad neta de los cuatro lotes, después de intereses · ' + fmt(D.ut[0], 0) + ' sin deuda'
+                                     : 'Utilidad neta de los cuatro lotes';
+    setFig('#f-plazo', cs.plazo, 0, 'años');
+    $('#th-deuda').innerHTML = 'Con deuda ' + pct + '%<br>MM US$';
     var tot = { land: 0, cap: 0, ce: 0, rev: 0, ut: 0, u: 0 };
-    $('#tb-lotes').innerHTML = LOTES.map(function (L) {
-      var d = L[k];
-      tot.land += d.land; tot.cap += d.cap; tot.ce += d.ce; tot.rev += d.rev; tot.ut += d.ut; tot.u += L.u;
+    $('#tb-lotes').innerHTML = LOTES.map(function (L, j) {
+      var d = L[k], ce = D.ce[i][j];
+      tot.land += d.land; tot.cap += d.cap; tot.ce += ce; tot.rev += d.rev; tot.ut += d.ut; tot.u += L.u;
       return '<tr><td>' + lotCell(L) + '</td><td>' + L.viv + '</td><td>' + fmt(d.p, 1) + '</td><td>' + fmt(d.land, 1) + '</td><td>' +
-        fmt(d.cap, 0) + '</td><td>' + fmt(d.ce, 0) + '</td><td>' + fmt(d.rev, 0) + '</td><td>' + fmt(d.ut, 1) + '</td><td>' + fmt(d.mx, 2) + 'x</td><td>' +
+        fmt(d.cap, 0) + '</td><td>' + fmt(ce, 0) + '</td><td>' + fmt(d.rev, 0) + '</td><td>' + fmt(d.ut, 1) + '</td><td>' + fmt(d.mx, 2) + 'x</td><td>' +
         fmt(d.y, d.y % 1 ? 1 : 0) + '</td></tr>';
     }).join('');
     $('#tf-lotes').innerHTML = '<tr><td>Los cuatro lotes</td><td>' + fmt(tot.u, 0) + ' viviendas</td><td>17,7 prom.</td><td>' + fmt(tot.land, 1) +
       '</td><td>' + fmt(tot.cap, 0) + '</td><td>' + fmt(tot.ce, 0) + '</td><td>' + fmt(tot.rev, 0) + '</td><td>' + fmt(tot.ut, 1) + '</td><td></td><td></td></tr>';
+    $('#d-cap').textContent = rango(D.ce[i]) + ' MM US$';
+    $('#d-cl').textContent = rango(D.cl[i]) + ' MM US$';
+    $('#d-debt').textContent = pct ? fmt(D.debt[i], 0) + ' MM US$' : '—';
+    $('#d-int').textContent = pct ? fmt(D.it[i], 1) + ' MM US$' : '—';
     $$('.seg button').forEach(function (b) { b.setAttribute('aria-checked', b.dataset.caso === k ? 'true' : 'false'); });
+    gDeuda();
   }
+  var rDeuda = $('#r-deuda');
+  function leerDeuda() {
+    nivel = Math.round(+rDeuda.value / 5);
+    $('#o-deuda').textContent = rDeuda.value + '%';
+    rDeuda.setAttribute('aria-valuetext', +rDeuda.value ? rDeuda.value + '% del terreno y de la obra' : 'sin deuda');
+    rDeuda.style.setProperty('--p', (+rDeuda.value / 60 * 100) + '%');
+    caso(casoAct);
+  }
+  rDeuda.addEventListener('input', leerDeuda);
   $$('.seg button').forEach(function (b) { b.addEventListener('click', function () { caso(b.dataset.caso); }); });
-  caso('B');
+  leerDeuda();
   $('#tb-interno').innerHTML = LOTES.map(function (L) {
     return '<tr><td>' + lotCell(L, true) + '</td><td>' + fmt(L.B.p, 1) + '</td><td>' + fmt(L.B.land, 1) + '</td><td>' + fmt(L.B.u18, 1) + '%</td></tr>';
   }).join('');
@@ -342,7 +406,7 @@
       '"><span class="pre" style="width:' + pre.toFixed(1) + '%"></span></div></div></div>';
   }).join('');
 
-  function graficos() { gOferta(); }
+  function graficos() { gOferta(); gDeuda(); }
   var fontsListas = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
   fontsListas.then(graficos);
   var rz; addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(function () { graficos(); frame(); }, 150); });
