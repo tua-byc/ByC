@@ -52,8 +52,8 @@
       </p>
       <div class="figs c4 up" style="--d:.22s;margin-top:clamp(2.2rem,5vh,3.4rem)">
         <div><span class="fig gold">17,5<span class="u">UF/m²</span></span><span class="fig-l">Cierre esperado por el paño · US$99 MM · rango 16,5–18,5</span></div>
-        <div><span class="fig" data-count="11.6" data-dec="1">11,6<span class="u">% TIR real</span></span><span class="fig-l">Por socio, escenario conservador, sin deuda · 13,3% en el favorable</span></div>
-        <div><span class="fig">33–60<span class="u">MM US$</span></span><span class="fig-l">Capital máximo por socio · 26–40 con crédito de construcción</span></div>
+        <div><span class="fig" data-count="14.8" data-dec="1">14,8<span class="u">% TIR real</span></span><span class="fig-l">Por socio, con deuda 50% a UF + 4,4% · 11,6% sin deuda · escenario conservador</span></div>
+        <div><span class="fig">19–35<span class="u">MM US$</span></span><span class="fig-l">Capital máximo por socio con deuda · 33–60 sin deuda</span></div>
         <div><span class="fig" data-count="144">144<span class="u">MM US$</span></span><span class="fig-l">Utilidad neta de los cuatro lotes · 3,32 MM UF</span></div>
       </div>
       <p class="note up" style="--d:.3s;margin-top:1.8rem">
@@ -245,19 +245,19 @@
         <button type="button" role="radio" aria-checked="false" data-caso="A">Escenario favorable<small>Cada lote vende 4,5 deptos y 2 casas al mes</small></button>
       </div>
       <div class="figs c4 up" style="--d:.2s;margin-top:1.6rem" id="figs-caso">
-        <div><span class="fig gold" id="f-tir">11,6<span class="u">%</span></span><span class="fig-l">TIR real de cada socio, sin deuda</span></div>
-        <div><span class="fig" id="f-tireq">12,3<span class="u">%</span></span><span class="fig-l">Con crédito de construcción (65% de la obra, UF + 6%)</span></div>
+        <div><span class="fig" id="f-tir">11,6<span class="u">%</span></span><span class="fig-l">TIR real de cada socio, sin deuda</span></div>
+        <div><span class="fig gold" id="f-tireq">14,8<span class="u">%</span></span><span class="fig-l">Con deuda del 50% de obra y terreno, a UF + 4,4%</span></div>
         <div><span class="fig" id="f-util">144<span class="u">MM US$</span></span><span class="fig-l">Utilidad neta de los cuatro lotes</span></div>
         <div><span class="fig" id="f-plazo">8–12<span class="u">años</span></span><span class="fig-l">De la compra a la última escritura</span></div>
       </div>
       <div class="tbl-wrap up" style="--d:.26s">
         <table class="tbl lots" aria-label="Retorno por lote">
-          <thead><tr><th>Lote</th><th>Viviendas</th><th>Precio interno<br>UF/m²</th><th>Terreno<br>MM US$</th><th>Capital máx.<br>MM US$</th><th>Con crédito<br>MM US$</th><th>Ventas<br>MM US$</th><th>Utilidad<br>MM US$</th><th>Múltiplo</th><th>Plazo<br>años</th></tr></thead>
+          <thead><tr><th>Lote</th><th>Viviendas</th><th>Precio interno<br>UF/m²</th><th>Terreno<br>MM US$</th><th>Capital máx.<br>MM US$</th><th>Con deuda<br>MM US$</th><th>Ventas<br>MM US$</th><th>Utilidad<br>MM US$</th><th>Múltiplo</th><th>Plazo<br>años</th></tr></thead>
           <tbody id="tb-lotes"></tbody>
           <tfoot id="tf-lotes"></tfoot>
         </table>
       </div>
-      <p class="cap">Capital máximo: caja acumulada más negativa del lote, sin deuda y con crédito de construcción. Ventas a precios de lista con IVA; la utilidad es neta de IVA e impuesto de primera categoría, antes de impuestos finales del socio. El promedio de los precios internos (17,7) incluye 1% de costos de estructuración. US$ a $940,9 y UF a $40.926 (paridades del modelo).</p>
+      <p class="cap">Capital máximo: caja acumulada más negativa del lote, sin deuda y con deuda del 50% de obra y terreno a UF + 4,4% (intereses capitalizados y pagados con las escrituras, sin escudo tributario). Ventas a precios de lista con IVA; la utilidad es neta de IVA e impuesto de primera categoría, antes de impuestos finales del socio. El promedio de los precios internos (17,7) incluye 1% de costos de estructuración. US$ a $940,9 y UF a $40.926 (paridades del modelo).</p>
       <p class="note up" style="--d:.3s;margin-top:1.4rem">
         <strong>Por qué dos escenarios.</strong> En el favorable, cada lote vende al ritmo de un proyecto aislado en Vitacura. Pero
         tres lotes de departamentos a ese ritmo venderían cerca del 40% de lo que absorbe hoy la comuna, así que el conservador supone
@@ -276,17 +276,17 @@
         <div class="up" style="--d:.1s">
           <div class="tbl-wrap">
             <table class="tbl" aria-label="TIR por socio si algo sale peor">
-              <thead><tr><th>Si…</th><th>TIR por socio</th></tr></thead>
+              <thead><tr><th>Si…</th><th>TIR sin deuda</th><th>Con deuda 50%</th></tr></thead>
               <tbody>
-                <tr class="ref"><td>Todo sale como en el escenario conservador</td><td>11,6%</td></tr>
-                <tr><td>Los departamentos y casas se venden 5% más baratos</td><td>10,0%</td></tr>
-                <tr><td>La obra cuesta 10% más</td><td>9,8%</td></tr>
-                <tr><td>Los permisos se atrasan un año</td><td>9,9%</td></tr>
-                <tr><td>Las tres cosas anteriores pasan a la vez</td><td>7,1%</td></tr>
+                <tr class="ref"><td>Todo sale como en el escenario conservador</td><td>11,6%</td><td>14,8%</td></tr>
+                <tr><td>Los departamentos y casas se venden 5% más baratos</td><td>10,0%</td><td>12,5%</td></tr>
+                <tr><td>La obra cuesta 10% más</td><td>9,8%</td><td>12,2%</td></tr>
+                <tr><td>Los permisos se atrasan un año</td><td>9,9%</td><td>12,4%</td></tr>
+                <tr><td>Las tres cosas anteriores pasan a la vez</td><td>7,1%</td><td>8,3%</td></tr>
               </tbody>
             </table>
           </div>
-          <p class="cap">Paño a 17,5 UF/m², TIR real después de impuestos y sin deuda. Aun en el peor caso el proyecto no pierde capital, pero rinde bajo el 10% que se le exige.</p>
+          <p class="cap">Paño a 17,5 UF/m², TIR real después de impuestos. Aun en el peor caso el proyecto no pierde capital. La deuda sube el retorno en todos los casos, pero también el riesgo: si la tasa sube a UF + 5,4%, la TIR con deuda baja de 14,8% a 14,4%.</p>
         </div>
         <ul class="chk up" style="--d:.18s">
           <li><span><strong>Que los lotes se quiten clientes.</strong> Dos lotes son departamentos de tamaño parecido; por eso el escenario conservador ya supone ventas más lentas. Se acota diferenciando productos y escalonando lanzamientos.</span></li>
@@ -311,11 +311,11 @@
       </p>
       <div class="tbl-wrap up" style="--d:.12s;margin-top:clamp(1.6rem,4vh,2.4rem)">
         <table class="tbl" aria-label="Escalera de la oferta">
-          <thead><tr><th>Etapa</th><th>UF/m²</th><th>Paño<br>MM US$</th><th>TIR por socio<br>conservador</th><th>TIR por socio<br>favorable</th></tr></thead>
+          <thead><tr><th>Etapa</th><th>UF/m²</th><th>Paño<br>MM US$</th><th>Conservador<br>sin deuda</th><th>Conservador<br>con deuda</th><th>Favorable<br>sin deuda</th><th>Favorable<br>con deuda</th></tr></thead>
           <tbody>
-            <tr><td>Oferta inicial</td><td>16,0–16,5</td><td>91–94</td><td>12,6–12,2%</td><td>14,4–14,0%</td></tr>
-            <tr class="ref"><td>Cierre esperado</td><td>17,5</td><td>99</td><td>11,6%</td><td>13,3%</td></tr>
-            <tr><td>Máximo</td><td>18,5</td><td>105</td><td>11,0%</td><td>12,6%</td></tr>
+            <tr><td>Oferta inicial</td><td>16,0–16,5</td><td>91–94</td><td>12,6–12,2%</td><td>16,2–15,7%</td><td>14,4–14,0%</td><td>19,2–18,6%</td></tr>
+            <tr class="ref"><td>Cierre esperado</td><td>17,5</td><td>99</td><td>11,6%</td><td>14,8%</td><td>13,3%</td><td>17,5%</td></tr>
+            <tr><td>Máximo</td><td>18,5</td><td>105</td><td>11,0%</td><td>13,9%</td><td>12,6%</td><td>16,5%</td></tr>
           </tbody>
         </table>
       </div>
@@ -357,9 +357,9 @@
       </ol>
       <h3 class="up" style="--d:.1s;margin-top:clamp(2.4rem,6vh,3.4rem)">Lo que se pide a cada socio</h3>
       <div class="figs c4 up" style="--d:.16s;margin-top:1rem">
-        <div><span class="fig">17–29<span class="u">MM US$</span></span><span class="fig-l">Al cierre: su lote al precio interno</span></div>
+        <div><span class="fig">9–14<span class="u">MM US$</span></span><span class="fig-l">Al cierre: la mitad de su lote (la otra mitad con deuda)</span></div>
         <div><span class="fig">≈7<span class="u">MM US$</span></span><span class="fig-l">2027-2029: su parte de urbanización y mitigaciones viales</span></div>
-        <div><span class="fig">26–40<span class="u">MM US$</span></span><span class="fig-l">Capital máximo de su desarrollo, con crédito de construcción</span></div>
+        <div><span class="fig">19–35<span class="u">MM US$</span></span><span class="fig-l">Capital máximo de su desarrollo, con deuda 50% a UF + 4,4%</span></div>
         <div><span class="fig">Nov<span class="u">2026</span></span><span class="fig-l">Confirmar interés, firmar confidencialidad y revisar el modelo abierto</span></div>
       </div>
     </div>
@@ -418,7 +418,9 @@
           de inversión ni asesoría legal o tributaria. La referencia al proceso de venta del vendedor se basa en conversaciones con
           su asesor y puede cambiar. Las cifras provienen del modelo de valorización de ByC, en UF reales y a paridades del 17 de
           agosto de 2026 (UF $40.926 · US$ $940,9), con el paño a 17,5 UF/m² (rango de 16,5 a 18,5) y una división indicativa en cuatro lotes de igual
-          superficie; están sujetas a verificación de constructibilidad municipal, costos de obra, mitigaciones viales y absorción comunal.
+          superficie. Las cifras con deuda suponen financiamiento bancario del 50% del terreno y de la obra a UF + 4,4% real, con intereses
+          capitalizados y prepago con las escrituras, sin escudo tributario de intereses; la tasa y el porcentaje dependen de la
+          aprobación de cada banco. Todas las cifras están sujetas a verificación de constructibilidad municipal, costos de obra, mitigaciones viales y absorción comunal.
         </p>
         <p class="legal">
           Las imágenes y clips del proyecto fueron generados con inteligencia artificial a modo de ejemplo: son conceptuales y

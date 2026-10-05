@@ -14,27 +14,27 @@
     { n: 1, c: '--l1', s: 'Deptos premium', t: 'Departamentos premium', d: '277 departamentos de 120 m² en cinco edificios frente al Club de Polo',
       viv: '277 deptos', u: 277,
       pts: [[286.4,384],[270,334],[287,329.3],[287,208.5],[136,267],[132,270],[136.1,384]], lab: [212, 312],
-      A: { p: 19.7, land: 28.0, cap: 55.9, ce: 36.4, rev: 224.1, ut: 41.5, mx: 1.74, y: 8.5, last: 33, u18: 14.6 },
-      B: { p: 19.4, land: 27.5, cap: 53.4, ce: 37.4, rev: 224.1, ut: 41.6, mx: 1.78, y: 10.5, last: 41, u18: 12.6 } },
+      A: { p: 19.7, land: 28.0, cap: 55.9, ce: 30.2, rev: 224.1, ut: 41.5, mx: 1.74, y: 8.5, last: 33, u18: 14.6 },
+      B: { p: 19.4, land: 27.5, cap: 53.4, ce: 28.0, rev: 224.1, ut: 41.6, mx: 1.78, y: 10.5, last: 41, u18: 12.6 } },
     { n: 2, c: '--l2', s: 'Deptos + centro', t: 'Departamentos y centro de barrio', d: '201 departamentos y 4.000 m² de comercio en el acceso por Av. Santa María',
       viv: '201 deptos + comercio', u: 201,
       pts: [[142,550],[297,492],[314,468],[286.4,384],[136.1,384]], lab: [214, 455],
-      A: { p: 18.6, land: 26.5, cap: 60.3, ce: 36.6, rev: 189.5, ut: 38.1, mx: 1.63, y: 7.25, last: 28, u18: 13.9 },
-      B: { p: 19.8, land: 28.1, cap: 60.3, ce: 39.9, rev: 189.5, ut: 37.1, mx: 1.61, y: 8.5, last: 33, u18: 12.9 } },
+      A: { p: 18.6, land: 26.5, cap: 60.3, ce: 36.4, rev: 189.5, ut: 38.1, mx: 1.63, y: 7.25, last: 28, u18: 13.9 },
+      B: { p: 19.8, land: 28.1, cap: 60.3, ce: 34.7, rev: 189.5, ut: 37.1, mx: 1.61, y: 8.5, last: 33, u18: 12.9 } },
     { n: 3, c: '--l3', s: 'Deptos 100 m²', t: 'Departamentos de 100 m²', d: '333 departamentos más compactos en la franja norte, a 128 UF/m² útil',
       viv: '333 deptos', u: 333,
       pts: [[357,156],[340,64],[207,68],[213,208],[136,267],[427,154.4]], lab: [272, 140],
-      A: { p: 20.3, land: 28.9, cap: 59.2, ce: 38.9, rev: 237.5, ut: 45.7, mx: 1.77, y: 9.25, last: 36, u18: 15.0 },
-      B: { p: 19.4, land: 27.6, cap: 52.4, ce: 37.6, rev: 237.5, ut: 46.3, mx: 1.88, y: 11.75, last: 46, u18: 12.6 } },
+      A: { p: 20.3, land: 28.9, cap: 59.2, ce: 31.2, rev: 237.5, ut: 45.7, mx: 1.77, y: 9.25, last: 36, u18: 15.0 },
+      B: { p: 19.4, land: 27.6, cap: 52.4, ce: 27.2, rev: 237.5, ut: 46.3, mx: 1.88, y: 11.75, last: 46, u18: 12.6 } },
     { n: 4, c: '--l4', s: 'Town houses', t: 'Town houses', d: '108 casas de 220 m² en clusters, como transición hacia Camino Agua del Palo',
       viv: '108 casas', u: 108,
       pts: [[460,282],[442,154],[427,154.4],[287,208.5],[287,329.3]], lab: [372, 240],
-      A: { p: 12.1, land: 17.2, cap: 34.3, ce: 25.5, rev: 118.9, ut: 19.5, mx: 1.57, y: 7.25, last: 28, u18: 7.9 },
-      B: { p: 12.1, land: 17.3, cap: 33.2, ce: 25.9, rev: 118.9, ut: 19.3, mx: 1.58, y: 8.5, last: 33, u18: 7.0 } }
+      A: { p: 12.1, land: 17.2, cap: 34.3, ce: 20.1, rev: 118.9, ut: 19.5, mx: 1.57, y: 7.25, last: 28, u18: 7.9 },
+      B: { p: 12.1, land: 17.3, cap: 33.2, ce: 19.2, rev: 118.9, ut: 19.3, mx: 1.58, y: 8.5, last: 33, u18: 7.0 } }
   ];
   var CASO = {
-    A: { tir: 13.3, tireq: 14.2, ut: 145, plazo: '7–9' },
-    B: { tir: 11.6, tireq: 12.3, ut: 144, plazo: '8–12' }
+    A: { tir: 13.3, tireq: 17.5, ut: 145, plazo: '7–9' },
+    B: { tir: 11.6, tireq: 14.8, ut: 144, plazo: '8–12' }
   };
   var VALOR = [
     { l: 'Un dueño · programa base', s: 'Mezcla optimizada para un dueño, con venta de macrolotes · termina en 2037', v: 17.3 },
