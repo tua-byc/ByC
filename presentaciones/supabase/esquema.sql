@@ -43,6 +43,11 @@ create index if not exists visitas_ip_fallos  on public.visitas (ip, creado_en) 
 alter table public.codigos enable row level security;
 alter table public.visitas enable row level security;
 revoke all on public.codigos, public.visitas from anon, authenticated;
+-- Las funciones de Netlify usan la clave de servicio: permisos explícitos por si el proyecto
+-- se creó sin "Automatically expose new tables".
+grant usage on schema public to service_role;
+grant select, insert, update on public.codigos to service_role;
+grant select, insert on public.visitas to service_role;
 
 -- ─── Generar un código: select public.nuevo_codigo('lo-recabarren','LR','Nombre Apellido','Empresas Juan Yarur');
 create or replace function public.nuevo_codigo(
