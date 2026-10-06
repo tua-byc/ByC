@@ -247,10 +247,11 @@
       <div class="deuda up" style="--d:.18s">
         <div class="deuda-ctl">
           <div class="deuda-top"><label for="r-deuda">Deuda bancaria sobre terreno y obra</label><output id="o-deuda" for="r-deuda">50%</output></div>
-          <input type="range" id="r-deuda" min="0" max="60" step="5" value="50" aria-valuetext="50% del terreno y de la obra">
-          <div class="deuda-esc" aria-hidden="true"><span>Sin deuda</span><span>25%</span><span class="hoy">50% · disponible hoy</span></div>
+          <input type="range" id="r-deuda" min="0" max="100" step="5" value="50" aria-valuetext="50% del terreno y de la obra">
+          <div class="deuda-esc" aria-hidden="true"><span>Sin deuda</span><span class="hoy">50% · caso base</span><span>100%</span></div>
           <p class="deuda-n">Mueva el control para elegir qué parte del terreno y de la obra financia un banco, a UF + 4,4% real.
             Las cifras de abajo cambian con él.</p>
+          <p class="deuda-alerta" id="deuda-alerta" hidden>Apalancamiento alto: más retorno y más sensibilidad a los plazos de venta.</p>
           <dl class="deuda-kv">
             <div><dt>Capital máximo por socio</dt><dd id="d-cap">19–35 MM US$</dd></div>
             <div><dt>Aporte al cierre por socio</dt><dd id="d-cl">9–14 MM US$</dd></div>
@@ -258,7 +259,7 @@
             <div><dt>Intereses, cuatro lotes</dt><dd id="d-int">15 MM US$</dd></div>
           </dl>
         </div>
-        <div class="chart deuda-ch" id="ch-deuda"><p class="t">TIR real de cada socio según la deuda</p></div>
+        <div class="chart deuda-ch" id="ch-deuda"><p class="t">TIR real de cada socio según la deuda <span class="esc-log">· escala logarítmica</span></p></div>
       </div>
       <div class="figs c4 up" style="--d:.2s;margin-top:1.6rem" id="figs-caso">
         <div><span class="fig" id="f-tir">11,6<span class="u">%</span></span><span class="fig-l">TIR real de cada socio, sin deuda</span></div>
@@ -273,7 +274,7 @@
           <tfoot id="tf-lotes"></tfoot>
         </table>
       </div>
-      <p class="cap">Capital máximo: caja acumulada más negativa del lote, sin deuda y con la deuda elegida arriba a UF + 4,4% (intereses capitalizados y pagados con las escrituras, sin escudo tributario). El 50% es lo que hoy se puede conseguir; sobre eso depende de cada banco. Más deuda sube el retorno pero también el riesgo si las ventas se atrasan. Ventas a precios de lista con IVA; la utilidad es neta de IVA e impuesto de primera categoría, antes de impuestos finales del socio. El promedio de los precios internos (17,7) incluye 1% de costos de estructuración. US$ a $940,9 y UF a $40.926 (paridades del modelo).</p>
+      <p class="cap">Capital máximo: caja acumulada más negativa del lote, sin deuda y con la deuda elegida arriba a UF + 4,4% (intereses capitalizados y pagados con las escrituras, sin escudo tributario). El caso base usa 50%; cada socio puede financiar su lote con más o menos deuda. Más deuda sube el retorno pero también el riesgo si las ventas se atrasan. Ventas a precios de lista con IVA; la utilidad es neta de IVA e impuesto de primera categoría, antes de impuestos finales del socio. El promedio de los precios internos (17,7) incluye 1% de costos de estructuración. US$ a $940,9 y UF a $40.926 (paridades del modelo).</p>
       <p class="note up" style="--d:.3s;margin-top:1.4rem">
         <strong>Por qué dos escenarios.</strong> En el favorable, cada lote vende al ritmo de un proyecto aislado en Vitacura. Pero
         tres lotes de departamentos a ese ritmo venderían cerca del 40% de lo que absorbe hoy la comuna, así que el conservador supone

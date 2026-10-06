@@ -288,7 +288,7 @@ figure{margin:0}
 .deuda-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
 .deuda-top label{font-weight:500;font-size:.98rem;letter-spacing:-.01em}
 .deuda-top output{font-family:var(--serif);font-size:clamp(2rem,4vw,2.6rem);line-height:1;color:var(--gold-text)}
-#r-deuda{--p:83.33%;-webkit-appearance:none;appearance:none;width:100%;height:28px;margin:1rem 0 .3rem;background:transparent;cursor:pointer}
+#r-deuda{--p:50%;-webkit-appearance:none;appearance:none;width:100%;height:28px;margin:1rem 0 .3rem;background:transparent;cursor:pointer}
 #r-deuda::-webkit-slider-runnable-track{height:4px;border-radius:2px;background:linear-gradient(90deg,var(--gold) var(--p),var(--hair) var(--p))}
 #r-deuda::-moz-range-track{height:4px;border-radius:2px;background:var(--hair)}
 #r-deuda::-moz-range-progress{height:4px;border-radius:2px;background:var(--gold)}
@@ -298,13 +298,16 @@ figure{margin:0}
 .deuda-esc{position:relative;height:1.1rem;font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--faint)}
 .deuda-esc span{position:absolute;top:0;white-space:nowrap}
 .deuda-esc span:nth-child(1){left:0}
-.deuda-esc span:nth-child(2){left:41.67%;transform:translateX(-50%)}
-.deuda-esc span:nth-child(3){left:83.33%;transform:translateX(-50%)}
+.deuda-esc span:nth-child(2){left:50%;transform:translateX(-50%)}
+.deuda-esc span:nth-child(3){right:0}
 .deuda-esc .hoy{color:var(--gold-text)}
 .deuda-n{margin-top:.9rem;font-size:.9rem;color:var(--muted)}
+.deuda-alerta{margin-top:.6rem;font-size:.84rem;color:var(--faint)}
+.deuda-alerta[hidden]{display:none}
 .deuda-kv{display:grid;grid-template-columns:1fr 1fr;gap:.9rem 1.2rem;margin:1.2rem 0 0;padding-top:1rem;border-top:1px solid var(--hair)}
 .deuda-kv dt{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.12em;color:var(--faint)}
 .deuda-kv dd{margin:.2rem 0 0;font-size:1.05rem;font-weight:500}
 .deuda-ch{margin:0}
 @media (max-width:860px){ .deuda{grid-template-columns:1fr} }
-@media (max-width:420px){ .deuda-esc span:nth-child(3){transform:translateX(-70%)} }
+
+.esc-log{font-weight:400;color:var(--faint);font-size:.84rem}
