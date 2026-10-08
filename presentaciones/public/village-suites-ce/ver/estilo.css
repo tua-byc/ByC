@@ -323,6 +323,23 @@ figure{margin:0}
 .foot img{height:26px;width:auto}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
+/* índice lateral fijo en pantallas anchas (el botón flotante queda para tablet y celular) */
+@media (min-width:1200px){
+  :root{--side:252px}
+  body{padding-left:var(--side)}
+  #top{left:var(--side)}
+  #prog{left:var(--side);width:calc(100% - var(--side))}
+  #btn-indice,.js #btn-indice{display:none}
+  #indice{left:0;right:auto;top:0;bottom:0;width:var(--side);max-height:none;border-radius:0;box-shadow:none;
+          opacity:1;visibility:visible;transform:none;transition:none;padding:1.5rem 1.1rem 2.2rem 1.3rem;
+          border-right:1px solid rgba(255,255,255,.08);z-index:42;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.18) transparent}
+  #indice a.marca{display:block}
+  #indice a{font-size:.84rem;padding:.28rem 0 .28rem .7rem}
+}
+#indice .marca{display:none;font-family:var(--serif);font-weight:600;font-size:1.35rem;line-height:1.1;color:#fff;
+               padding-bottom:1rem;margin-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.12);text-decoration:none;border-left:0}
+#indice a.marca:hover{border-left:0}
+
 @media (prefers-reduced-motion:reduce){
   .off,.off *{opacity:1 !important;transform:none !important}
   *{transition:none !important;animation:none !important}

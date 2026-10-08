@@ -55,7 +55,7 @@
   /* ── Barra superior, progreso, parallax e índice activo ─────────────────── */
   var top = $('#top'), bar = $('#prog');
   var links = $$('#indice a'), secs = links.map(function (a) { return $(a.getAttribute('href')); });
-  var ticking = false;
+  var ticking = false, ultimo = -2;
   function frame() {
     ticking = false;
     var vh = innerHeight, y = scrollY, max = Math.max(1, document.documentElement.scrollHeight - vh);
@@ -64,6 +64,15 @@
     var act = -1;
     secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < vh * 0.35) act = i; });
     links.forEach(function (a, i) { a.classList.toggle('act', i === act); });
+    if (act !== ultimo) {
+      ultimo = act;
+      var ind = $('#indice'), la = links[act];
+      // en el índice lateral, mantener visible la sección activa
+      if (la && ind && innerWidth >= 1200) {
+        var t0 = la.offsetTop, h0 = la.offsetHeight;
+        if (t0 < ind.scrollTop + 60 || t0 + h0 > ind.scrollTop + ind.clientHeight - 60) ind.scrollTop = t0 - ind.clientHeight / 2;
+      }
+    }
     if (!reduce && y < portada.offsetHeight) bg1.style.transform = 'translate3d(0,' + (y * 0.16).toFixed(1) + 'px,0) scale(1.05)';
   }
   addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
