@@ -202,18 +202,6 @@ figure{margin:0}
 .types figcaption{padding:.65rem .8rem .75rem;font-size:.8rem;color:var(--muted);line-height:1.45;border-top:1px solid var(--hair)}
 .types figcaption b{color:var(--fg);font-weight:500}
 
-/* equipo */
-.team{display:grid;gap:1px;background:var(--border);border-block:1px solid var(--border);grid-template-columns:1fr}
-@media (min-width:700px){ .team{grid-template-columns:repeat(2,1fr)} }
-@media (min-width:1050px){ .team{grid-template-columns:repeat(3,1fr)} }
-.team > div{background:var(--bg);padding:1.3rem 1.2rem 1.4rem;display:grid;grid-template-columns:72px 1fr;gap:.2rem 1rem;align-content:start}
-.team img{width:72px;height:72px;border-radius:50%;object-fit:cover;grid-row:span 3;filter:grayscale(1);background:#DDD}
-.team h3{font-size:1.05rem}
-.team .rol{font-size:.84rem;color:var(--gold-text)}
-.team .edu{font-size:.8rem;color:var(--faint)}
-.team ul{grid-column:1/-1;margin:.8rem 0 0;padding:0 0 0 1rem;font-size:.88rem;color:var(--muted);line-height:1.55}
-.team li + li{margin-top:.25rem}
-
 /* listas */
 .chk{list-style:none;margin:0;padding:0;display:grid}
 .chk li{padding:.75rem 0;border-bottom:1px solid var(--hair);font-size:.94rem;color:var(--muted);line-height:1.5}
