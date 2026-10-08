@@ -54,7 +54,7 @@
 
   /* ── Barra superior, progreso, parallax e índice activo ─────────────────── */
   var top = $('#top'), bar = $('#prog');
-  var links = $$('#indice a'), secs = links.map(function (a) { return $(a.getAttribute('href')); });
+  var grps = $$('#indice .grp'), links = $$('#indice a'), secs = links.map(function (a) { return $(a.getAttribute('href')); });
   var ticking = false, ultimo = -2;
   function frame() {
     ticking = false;
@@ -64,6 +64,8 @@
     var act = -1;
     secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < vh * 0.35) act = i; });
     links.forEach(function (a, i) { a.classList.toggle('act', i === act); });
+    var gAct = act >= 0 && links[act] ? links[act].closest('.grp') : null;
+    grps.forEach(function (g) { g.classList.toggle('on', g === gAct); });
     if (act !== ultimo) {
       ultimo = act;
       var ind = $('#indice'), la = links[act];
