@@ -1,0 +1,14 @@
+# presentaciones.byc.cl — proyecto Netlify "byc-presentaciones"
+# Base directory en Netlify: presentaciones/   (todas las rutas de este archivo son relativas a ella)
+
+[build]
+  publish = "public"
+  # Sin paso de build: sitio estático + funciones.
+  # Solo se redespliega si cambió algo dentro de presentaciones/.
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Las edge functions viven en netlify/edge-functions (ruta por defecto).
