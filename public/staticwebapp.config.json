@@ -1,5 +1,6 @@
 {
   "mimeTypes": {
-    ".vcf": "text/vcard"
+    ".vcf": "text/vcard",
+    ".webmanifest": "application/manifest+json"
   }
 }
