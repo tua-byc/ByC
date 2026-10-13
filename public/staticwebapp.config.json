@@ -33,6 +33,7 @@
   },
   "mimeTypes": {
     ".vcf": "text/vcard",
+    ".mp4": "video/mp4",
     ".webmanifest": "application/manifest+json"
   }
 }
