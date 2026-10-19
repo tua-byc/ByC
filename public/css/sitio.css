@@ -681,29 +681,38 @@ a { text-decoration: none; color: inherit; }
 .footer {
     position: relative;
     overflow: hidden;
-    /* Fondo generado con Higgsfield: submarino lejano bajo el agua, abajo a la derecha */
+    /* Fondo generado con Higgsfield: skyline de Santiago en línea fina, tipo grabado */
     background:
-        linear-gradient(180deg, rgba(8,18,34,0.9) 0%, rgba(8,18,34,0.55) 40%, rgba(8,18,34,0) 70%),
-        var(--navy) url('/img/pie-submarino-v1.webp') center bottom / cover no-repeat;
+        linear-gradient(180deg, #0a1628 0%, rgba(10,22,40,0.9) 30%, rgba(10,22,40,0.25) 62%, rgba(10,22,40,0.55) 100%),
+        var(--navy) url('/img/pie-santiago-grabado-v1.webp') center bottom / cover no-repeat;
     color: rgba(255,255,255,0.7);
     padding: 90px 0 0;
 }
-/* Marca de agua: el logo original completo, grande y casi transparente */
-.footer-marca {
-    position: absolute;
-    left: 2%;
-    bottom: 64px;
-    width: clamp(380px, 38vw, 620px);
-    opacity: 0.06;
+/* Firma: el logo original, pequeño y tenue, con "Servicios Financieros" */
+.footer-firma {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 30px 0 clamp(230px, 24vw, 360px);
+    opacity: 0.22;
     pointer-events: none;
     user-select: none;
+}
+.footer-firma img { width: 150px; }
+.footer-firma span {
+    font-size: 0.7rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--white);
 }
 .footer-grid {
     position: relative;
     display: grid;
     grid-template-columns: 1.4fr 1fr 1.2fr 1.4fr;
     gap: 50px;
-    padding-bottom: clamp(200px, 22vw, 320px);
+    padding-bottom: 40px;
 }
 .footer-logo { height: 58px; width: auto; margin-bottom: 22px; }
 .footer-lema {
@@ -805,10 +814,17 @@ a { text-decoration: none; color: inherit; }
     .llamado-inner { flex-direction: column; align-items: flex-start; }
 
     .footer { padding-top: 64px; }
-    .footer-grid { grid-template-columns: 1fr; gap: 36px; padding-bottom: 120px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 36px; padding-bottom: 20px; }
     .footer-legal { flex-direction: column; padding: 20px 24px; }
-    .footer { background-position: 0 0, 86% bottom; }
-    .footer-marca { width: 78%; left: 4%; bottom: 120px; }
+    /* En celular la imagen ocupa una franja abajo (230% de ancho ≈ 130vw de alto): el degradado cubre solo esa franja */
+    .footer {
+        background:
+            linear-gradient(180deg, var(--navy) 0%, rgba(10,22,40,0.15) 40%, rgba(10,22,40,0.85) 100%) 0 100% / 100% 130vw no-repeat,
+            var(--navy) url('/img/pie-santiago-grabado-v1.webp') 50% 100% / 230% auto no-repeat;
+    }
+    .footer-firma { padding-bottom: 230px; }
+    .footer-firma img { width: 120px; }
+    .footer-firma span { font-size: 0.62rem; letter-spacing: 4px; }
 }
 @media (max-width: 480px) {
     .logos-grid { grid-template-columns: repeat(2, 1fr); }
