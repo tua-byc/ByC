@@ -8,10 +8,14 @@ on:
     types: [opened, synchronize, reopened, closed]
     branches:
       - main
+  # Republica una vez al día para refrescar los indicadores económicos de la barra superior
+  schedule:
+    - cron: "15 11 * * *" # 08:15 en Chile (horario de verano)
+  workflow_dispatch:
 
 jobs:
   build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    if: github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
@@ -19,6 +23,9 @@ jobs:
         with:
           submodules: true
           lfs: false
+      - name: Actualizar indicadores económicos
+        run: node scripts/indicadores.mjs
+        continue-on-error: true
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1

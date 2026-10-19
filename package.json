@@ -3,7 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "generar": "node equipo/generar.mjs"
+    "generar": "node equipo/generar.mjs",
+    "paginas": "node sitio/generar.mjs",
+    "indicadores": "node scripts/indicadores.mjs"
   },
   "devDependencies": {
     "qrcode": "^1.5.4"
