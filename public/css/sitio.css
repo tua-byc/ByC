@@ -667,6 +667,7 @@ a { text-decoration: none; color: inherit; }
     margin-bottom: 56px;
 }
 .encabezado p { font-size: 1.02rem; color: var(--gray-500); }
+.encabezado.separado { margin-top: 90px; }
 .oscura .encabezado p, .philosophy .encabezado p { color: rgba(255,255,255,0.68); }
 .oscura .section-label { color: rgba(255,255,255,0.55); }
 
@@ -845,6 +846,49 @@ a { text-decoration: none; color: inherit; }
 .cifra-item span { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--acero); }
 .nota { margin-top: 24px; font-size: 0.85rem; color: var(--gray-500); }
 
+/* Sección oscura con foto de fondo (trayectoria) */
+.seccion.con-fondo {
+    position: relative;
+    background:
+        linear-gradient(90deg, rgba(10,22,40,0.9) 0%, rgba(10,22,40,0.72) 45%, rgba(10,22,40,0.5) 100%),
+        var(--navy) url('/img/trayectoria-bolsa-v1.webp') center / cover no-repeat;
+}
+
+/* Dos columnas: imagen y contenido */
+.dividido {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 80px;
+    align-items: center;
+}
+.dividido.invertido { grid-template-columns: 1.15fr 1fr; }
+.dividido-img img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(10,22,40,0.18);
+}
+.dividido .encabezado { margin-bottom: 36px; }
+.pilares.dos { grid-template-columns: 1fr 1fr; border-top: none; }
+.pilares.dos .pilar,
+.pilares.dos .pilar + .pilar { padding: 26px 26px 26px 0; border-left: none; border-top: 1px solid var(--gray-100); }
+.pilares.dos .pilar:nth-child(even) { padding-left: 26px; border-left: 1px solid var(--gray-100); }
+.clientes.lista { grid-template-columns: 1fr; gap: 0; }
+.clientes.lista .cliente { padding: 22px 0; border-top: 1px solid var(--gray-100); }
+.clientes.lista .cliente:first-child { border-top: 2px solid var(--navy); }
+
+/* Foto a sangre arriba de una tarjeta */
+.tarjeta-foto {
+    display: block;
+    width: calc(100% + 68px);
+    max-width: none;
+    margin: -38px -34px 6px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 4px 4px 0 0;
+}
+.service-card .tarjeta-foto { margin: -44px -34px 26px; }
+.caso, .service-card { overflow: hidden; }
+
 /* Llamado a contacto (franja) */
 .llamado {
     padding: 100px 0;
@@ -965,7 +1009,7 @@ a { text-decoration: none; color: inherit; }
     .pilar:nth-child(n+3) { border-top: 1px solid var(--gray-100); }
     .trayectoria { grid-template-columns: 1fr 1fr; row-gap: 20px; }
     .proceso { grid-template-columns: repeat(3, 1fr); }
-    .about-grid, .philosophy-inner, .contacto-grid { gap: 50px; }
+    .about-grid, .philosophy-inner, .contacto-grid, .dividido { gap: 50px; }
 }
 @media (max-width: 860px) {
     :root { --alto-nav: 70px; --alto-ticker: 32px; }
@@ -1006,6 +1050,10 @@ a { text-decoration: none; color: inherit; }
     .contacto-grid { grid-template-columns: 1fr; gap: 36px; }
     .llamado-inner { flex-direction: column; align-items: flex-start; }
     .pilares, .casos, .servicios-resumen, .trayectoria, .clientes, .proceso, .cifras-banda { grid-template-columns: 1fr; }
+    .dividido, .dividido.invertido { grid-template-columns: 1fr; gap: 36px; }
+    .pilares.dos { grid-template-columns: 1fr; }
+    .pilares.dos .pilar:nth-child(even) { padding-left: 0; border-left: none; }
+    .dividido-img img { max-height: 420px; object-fit: cover; }
     .pilar, .pilar + .pilar { padding: 26px 0; border-left: none; }
     .pilar + .pilar { border-top: 1px solid var(--gray-100); }
     .servicio-resumen, .servicio-resumen + .servicio-resumen { padding: 28px 0 0; border-left: none; }
