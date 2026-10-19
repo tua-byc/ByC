@@ -252,16 +252,20 @@ a { text-decoration: none; color: inherit; }
     overflow: hidden;
 }
 /* Cada página interior tiene su propia portada (imágenes generadas con Higgsfield) */
-.portada[data-fondo="quienes"] { --fondo: url('/img/portada-quienes-v1.webp'); }
-.portada[data-fondo="servicios"] { --fondo: url('/img/portada-servicios-v1.webp'); }
-.portada[data-fondo="transacciones"] { --fondo: url('/img/portada-transacciones-v1.webp'); }
-.portada[data-fondo="contacto"] { --fondo: url('/img/portada-contacto-v1.webp'); }
+.portada[data-fondo="quienes"] { --fondo: url('/img/portada-quienes-v2.webp'); }
+.portada[data-fondo="servicios"] { --fondo: url('/img/portada-servicios-v2.webp'); }
+.portada[data-fondo="transacciones"] { --fondo: url('/img/portada-transacciones-v2.webp'); }
+.portada[data-fondo="contacto"] { --fondo: url('/img/portada-contacto-v2.webp'); }
 .portada::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(100deg, rgba(8,18,34,0.88) 0%, rgba(8,18,34,0.6) 55%, rgba(8,18,34,0.35) 100%);
+    /* Fotos claras: solo un degradado detrás del título y otro arriba para el menú */
+    background:
+        linear-gradient(180deg, rgba(8,18,34,0.55) 0%, rgba(8,18,34,0) 30%),
+        linear-gradient(90deg, rgba(8,18,34,0.8) 0%, rgba(8,18,34,0.55) 45%, rgba(8,18,34,0.12) 80%);
 }
+.portada h1, .portada-bajada { text-shadow: 0 1px 18px rgba(8,18,34,0.35); }
 .portada .container { position: relative; width: 100%; }
 .portada .section-label { color: rgba(255,255,255,0.65); }
 .portada h1 {
@@ -846,13 +850,26 @@ a { text-decoration: none; color: inherit; }
 .cifra-item span { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--acero); }
 .nota { margin-top: 24px; font-size: 0.85rem; color: var(--gray-500); }
 
-/* Sección oscura con foto de fondo (trayectoria) */
-.seccion.con-fondo {
-    position: relative;
-    background:
-        linear-gradient(90deg, rgba(10,22,40,0.9) 0%, rgba(10,22,40,0.72) 45%, rgba(10,22,40,0.5) 100%),
-        var(--navy) url('/img/trayectoria-bolsa-v1.webp') center / cover no-repeat;
+/* Banda de foto a todo el ancho del contenedor (trayectoria) */
+.banda-foto {
+    width: 100%;
+    aspect-ratio: 21 / 8;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 56px;
 }
+/* Variantes claras de trayectoria, resumen de servicios y proceso */
+.trayectoria.claro::before { background: var(--gray-300); }
+.trayectoria.claro .hito-marca { color: var(--navy); }
+.trayectoria.claro .hito p { color: var(--gray-500); }
+.servicios-resumen.claro { border-top-color: var(--gray-100); }
+.servicios-resumen.claro .servicio-resumen + .servicio-resumen { border-left-color: var(--gray-100); }
+.servicios-resumen.claro h3 { color: var(--navy); }
+.servicios-resumen.claro p { color: var(--gray-500); }
+.proceso.claro .paso { border-top-color: var(--gray-300); }
+.proceso.claro .paso::before { color: var(--gold); }
+.proceso.claro .paso h3 { color: var(--navy); }
+.proceso.claro .paso p { color: var(--gray-500); }
 
 /* Dos columnas: imagen y contenido */
 .dividido {
@@ -1054,6 +1071,7 @@ a { text-decoration: none; color: inherit; }
     .pilares.dos { grid-template-columns: 1fr; }
     .pilares.dos .pilar:nth-child(even) { padding-left: 0; border-left: none; }
     .dividido-img img { max-height: 420px; object-fit: cover; }
+    .banda-foto { aspect-ratio: 4 / 3; margin-bottom: 40px; }
     .pilar, .pilar + .pilar { padding: 26px 0; border-left: none; }
     .pilar + .pilar { border-top: 1px solid var(--gray-100); }
     .servicio-resumen, .servicio-resumen + .servicio-resumen { padding: 28px 0 0; border-left: none; }
