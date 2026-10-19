@@ -23,6 +23,7 @@
 }
 .intro-lema {
     font-family: var(--font-serif);
+    font-weight: 300;
     font-style: italic;
     font-size: 1.05rem;
     letter-spacing: 1px;
@@ -105,7 +106,7 @@
 }
 .hero h1 {
     font-family: var(--font-serif);
-    font-weight: 400;
+    font-weight: 300;
     font-size: clamp(3rem, 7.4vw, 6.4rem);
     line-height: 1.04;
     color: var(--white);
@@ -148,6 +149,7 @@
 .hero-cifra + .hero-cifra { padding-left: 40px; border-left: 1px solid rgba(255,255,255,0.16); }
 .hero-cifra-numero {
     font-family: var(--font-serif);
+    font-weight: 300;
     font-size: clamp(1.8rem, 2.6vw, 2.4rem);
     color: var(--white);
     line-height: 1;
@@ -202,7 +204,7 @@
 }
 .area h3 {
     font-family: var(--font-serif);
-    font-weight: 400;
+    font-weight: 300;
     font-size: 1.5rem;
     color: var(--navy);
 }

@@ -27,7 +27,7 @@ function armar(datos, cuerpo) {
     const { pagina, titulo, descripcion, inicio } = datos;
     // Marca la pestaña de la página actual
     const menu = cabecera.replace(`data-pagina="${pagina}"`, `data-pagina="${pagina}" aria-current="page"`);
-    const fuentes = 'https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap';
+    const fuentes = 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&family=Inter:wght@300;400;500;600&display=swap';
     // La intro del logo se decide antes de pintar, para que no parpadee la portada
     const scriptIntro = inicio
         ? `\n    <script>try{if(!sessionStorage.getItem('byc-intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('con-intro','intro-activa')}catch(e){}</script>`
