@@ -8,17 +8,9 @@
 <!-- ===== HERO ===== -->
 <section class="hero" aria-labelledby="hero-titulo">
     <div class="hero-mar">
-        <!-- El video se carga solo en pantallas anchas; en celular queda la imagen fija de fondo -->
-        <video muted loop playsinline preload="none" poster="/img/mar-byc-poster-v1.webp" data-src="/video/mar-byc-v1.mp4"></video>
-    </div>
-    <div class="hero-submarino" aria-hidden="true">
-        <svg viewBox="0 0 1000 170" xmlns="http://www.w3.org/2000/svg" fill="#020b17">
-            <path d="M985 85C985 63 960 52 915 52L300 54C215 55 140 66 70 80L48 85L70 90C140 104 215 115 300 116L915 118C960 118 985 107 985 85Z"/>
-            <path d="M650 85C650 76 680 72 720 72C760 72 788 78 790 85C788 92 760 98 720 98C680 98 650 94 650 85Z" opacity="0.6"/>
-            <path d="M700 72L690 40H708L722 72ZM700 98L690 130H708L722 98Z"/>
-            <path d="M140 72L100 22H80L100 78ZM140 98L100 148H80L100 92Z"/>
-            <path d="M50 80L30 76V94L50 90Z"/>
-        </svg>
+        <!-- Submarino cruzando bajo el agua; empieza y termina en el mismo cuadro, así el bucle no tiene corte.
+             Se carga solo en pantallas anchas; en celular queda la imagen fija de fondo -->
+        <video muted loop playsinline preload="none" poster="/img/mar-submarino-poster-v1.webp" data-src="/video/mar-submarino-v1.mp4"></video>
     </div>
     <div class="hero-velo"></div>
     <div class="container hero-contenido">
@@ -66,11 +58,11 @@
             </p>
         </div>
         <div class="areas-grid fade-in">
-            <a class="area" href="/acerca">
+            <a class="area" href="/quienes-somos">
                 <span class="area-num">01</span>
-                <h3>Acerca de</h3>
-                <p>Nuestra historia, valores y la filosofía que guía cada mandato.</p>
-                <span class="enlace-flecha">Conocer</span>
+                <h3>Quiénes somos</h3>
+                <p>Nuestra historia, la filosofía que guía cada mandato y el equipo detrás de cada transacción.</p>
+                <span class="enlace-flecha">Conocernos</span>
             </a>
             <a class="area" href="/servicios">
                 <span class="area-num">02</span>
@@ -83,12 +75,6 @@
                 <h3>Transacciones</h3>
                 <p>Algunas de las operaciones más emblemáticas del mercado chileno.</p>
                 <span class="enlace-flecha">Ver track record</span>
-            </a>
-            <a class="area" href="/equipo">
-                <span class="area-num">04</span>
-                <h3>Equipo</h3>
-                <p>Las personas detrás de cada transacción.</p>
-                <span class="enlace-flecha">Conocer al equipo</span>
             </a>
         </div>
     </div>

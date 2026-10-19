@@ -4,7 +4,7 @@ ByC PROD — sitio estático de byc.cl en Azure Static Web Apps.
 ## Estructura
 
 - `public/` — **lo único que se publica** (el workflow usa `app_location: "public"`). Estilos en `public/css/`, scripts en `public/js/`.
-- `sitio/` — fuente de las páginas (inicio, acerca, servicios, transacciones, equipo, contacto). **No se publica.**
+- `sitio/` — fuente de las páginas (inicio, quiénes somos, servicios, transacciones, contacto). **No se publica.**
 - `scripts/indicadores.mjs` — baja los indicadores de mindicador.cl a `public/data/indicadores.json`. Lo corre el workflow antes de cada deploy y una vez al día.
 - `equipo/` — datos, script y QR de las tarjetas de presentación. **No se publica.**
 

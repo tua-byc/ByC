@@ -1,9 +1,15 @@
 // B&C — página de inicio
 
 // Enlaces antiguos de la web de una sola página (byc.cl/#servicios, etc.)
-const PAGINAS = ['acerca', 'servicios', 'transacciones', 'equipo', 'contacto'];
+const PAGINAS = {
+    acerca: '/quienes-somos',
+    equipo: '/quienes-somos#equipo',
+    servicios: '/servicios',
+    transacciones: '/transacciones',
+    contacto: '/contacto',
+};
 const ancla = location.hash.slice(1);
-if (PAGINAS.includes(ancla)) location.replace('/' + ancla);
+if (PAGINAS[ancla]) location.replace(PAGINAS[ancla]);
 
 // Intro con el logo: se quita al terminar o con un clic/tecla
 const raiz = document.documentElement;

@@ -51,7 +51,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background: var(--azul-mar) url('/img/mar-byc-poster-v1.webp') center / cover no-repeat;
+    background: var(--azul-mar) url('/img/mar-submarino-poster-v1.webp') center / cover no-repeat;
 }
 .hero-mar {
     position: absolute;
@@ -65,27 +65,6 @@
 }
 .hero-mar video::-webkit-media-controls,
 .hero-mar video::-webkit-media-controls-start-playback-button { display: none !important; }
-
-/* Submarino visto desde arriba, pasando bajo la superficie */
-.hero-submarino {
-    position: absolute;
-    top: 58%;
-    left: 0;
-    width: clamp(420px, 52vw, 860px);
-    mix-blend-mode: multiply;
-    opacity: 0.75;
-    filter: blur(2px);
-    pointer-events: none;
-    /* Empieza ya entrando por la izquierda para que se vea en los primeros segundos */
-    animation: subCruza 70s linear -16s infinite;
-    will-change: transform;
-}
-.hero-submarino svg { display: block; width: 100%; height: auto; }
-@keyframes subCruza {
-    0%   { transform: translate(-110%, 30px) rotate(-6deg); }
-    50%  { transform: translate(55vw, -50px) rotate(-6deg); }
-    100% { transform: translate(115vw, -130px) rotate(-6deg); }
-}
 
 /* Velo para que el texto se lea sin oscurecer todo el mar */
 .hero-velo {
@@ -204,7 +183,7 @@
 /* ===== RESUMEN DE ÁREAS (inicio) ===== */
 .areas-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     border-top: 1px solid var(--gray-100);
 }
 .area {
@@ -246,18 +225,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-submarino { animation: none; transform: translate(40vw, 0) rotate(-6deg); }
     .hero-contenido > *, .hero-cifras { opacity: 1; transform: none; animation: none; }
-}
-@media (max-width: 1100px) {
-    .areas-grid { grid-template-columns: 1fr 1fr; }
-    .area:nth-child(3) { padding-left: 0; border-left: none; }
-    .area:nth-child(n+3) { border-top: 1px solid var(--gray-100); }
 }
 @media (max-width: 860px) {
     .hero { min-height: 600px; }
     .hero-mar { display: none; }
-    .hero-submarino { top: 64%; width: 360px; animation-duration: 40s; }
     .hero-velo {
         background:
             linear-gradient(0deg, rgba(6,16,32,0.8) 0%, rgba(6,16,32,0.3) 60%, rgba(6,16,32,0.55) 100%);

@@ -248,7 +248,7 @@ a { text-decoration: none; color: inherit; }
     display: flex;
     align-items: flex-end;
     padding: calc(var(--alto-nav) + var(--alto-ticker) + 60px) 0 70px;
-    background: var(--navy) url('/img/mar-byc-poster-v1.webp') center / cover no-repeat;
+    background: var(--navy) url('/img/mar-submarino-poster-v1.webp') center / cover no-repeat;
     overflow: hidden;
 }
 .portada::before {
