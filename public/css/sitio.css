@@ -248,9 +248,14 @@ a { text-decoration: none; color: inherit; }
     display: flex;
     align-items: flex-end;
     padding: calc(var(--alto-nav) + var(--alto-ticker) + 60px) 0 70px;
-    background: var(--navy) url('/img/mar-submarino-poster-v1.webp') center / cover no-repeat;
+    background: var(--navy) var(--fondo, url('/img/mar-submarino-poster-v1.webp')) center / cover no-repeat;
     overflow: hidden;
 }
+/* Cada página interior tiene su propia portada (imágenes generadas con Higgsfield) */
+.portada[data-fondo="quienes"] { --fondo: url('/img/portada-quienes-v1.webp'); }
+.portada[data-fondo="servicios"] { --fondo: url('/img/portada-servicios-v1.webp'); }
+.portada[data-fondo="transacciones"] { --fondo: url('/img/portada-transacciones-v1.webp'); }
+.portada[data-fondo="contacto"] { --fondo: url('/img/portada-contacto-v1.webp'); }
 .portada::before {
     content: '';
     position: absolute;
@@ -524,9 +529,7 @@ a { text-decoration: none; color: inherit; }
     text-align: center;
     margin-top: 10px;
     line-height: 1.3;
-    display: none;
 }
-.logo-item:hover .logo-caption { display: block; }
 .show-more-btn {
     display: block;
     margin: 40px auto 0;
@@ -608,6 +611,7 @@ a { text-decoration: none; color: inherit; }
     line-height: 1.8;
     max-width: 480px;
 }
+.contacto-intro p + p { margin-top: 16px; }
 .contacto-detalles {
     display: grid;
     gap: 18px;
@@ -656,6 +660,190 @@ a { text-decoration: none; color: inherit; }
 }
 .contact-detail-text a:hover,
 .contact-detail-text a:focus-visible { border-color: var(--navy); }
+
+/* Encabezado de sección con bajada */
+.encabezado {
+    max-width: 760px;
+    margin-bottom: 56px;
+}
+.encabezado p { font-size: 1.02rem; color: var(--gray-500); }
+.oscura .encabezado p, .philosophy .encabezado p { color: rgba(255,255,255,0.68); }
+.oscura .section-label { color: rgba(255,255,255,0.55); }
+
+/* Pilares (Por qué B&C) y valores */
+.pilares {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--gray-100);
+}
+.pilar { padding: 36px 32px 8px 0; }
+.pilar + .pilar { padding-left: 32px; border-left: 1px solid var(--gray-100); }
+.pilar-num {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--acero);
+    margin-bottom: 18px;
+}
+.pilar h3 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: 1.45rem;
+    line-height: 1.25;
+    color: var(--navy);
+    margin-bottom: 12px;
+}
+.pilar p { font-size: 0.92rem; color: var(--gray-500); }
+
+/* Transacciones emblemáticas */
+.casos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+.caso {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 38px 34px;
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 4px;
+}
+.caso-sector {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--acero);
+}
+.caso h3 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: 1.4rem;
+    line-height: 1.3;
+    color: var(--navy);
+}
+.caso p { font-size: 0.9rem; color: var(--gray-500); line-height: 1.7; }
+.seccion-pie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-top: 44px;
+}
+
+/* Resumen de servicios (inicio) */
+.servicios-resumen {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.14);
+}
+.servicio-resumen { padding: 36px 32px 0 0; }
+.servicio-resumen + .servicio-resumen { padding-left: 32px; border-left: 1px solid rgba(255,255,255,0.14); }
+.servicio-resumen h3 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 12px;
+}
+.servicio-resumen p { font-size: 0.92rem; color: rgba(255,255,255,0.68); margin-bottom: 22px; }
+
+/* Trayectoria */
+.trayectoria {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+}
+.trayectoria::before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255,255,255,0.18);
+}
+.hito { position: relative; padding: 34px 28px 0 0; }
+.hito::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+}
+.hito-marca {
+    display: block;
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+.hito p { font-size: 0.9rem; color: rgba(255,255,255,0.68); }
+
+/* Clientes y proceso (servicios) */
+.clientes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+.cliente { padding-top: 24px; border-top: 2px solid var(--navy); }
+.cliente h3 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: 1.35rem;
+    color: var(--navy);
+    margin-bottom: 10px;
+}
+.cliente p { font-size: 0.92rem; color: var(--gray-500); }
+.proceso {
+    list-style: none;
+    counter-reset: paso;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+}
+.paso { counter-increment: paso; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.18); }
+.paso::before {
+    content: counter(paso, decimal-leading-zero);
+    display: block;
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: 2rem;
+    color: var(--gold-light);
+    margin-bottom: 14px;
+}
+.paso h3 { font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+.paso p { font-size: 0.86rem; color: rgba(255,255,255,0.65); line-height: 1.65; }
+
+/* Cifras (transacciones) */
+.cifras-banda {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--gray-100);
+    border-bottom: 1px solid var(--gray-100);
+    margin-bottom: 70px;
+}
+.cifra-item { padding: 30px 0; text-align: center; }
+.cifra-item + .cifra-item { border-left: 1px solid var(--gray-100); }
+.cifra-item strong {
+    display: block;
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: 2.4rem;
+    line-height: 1.1;
+    color: var(--navy);
+}
+.cifra-item span { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--acero); }
+.nota { margin-top: 24px; font-size: 0.85rem; color: var(--gray-500); }
 
 /* Llamado a contacto (franja) */
 .llamado {
@@ -772,6 +960,11 @@ a { text-decoration: none; color: inherit; }
     .logos-grid { grid-template-columns: repeat(4, 1fr); }
     .team-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: 1fr 1fr; }
+    .pilares { grid-template-columns: 1fr 1fr; }
+    .pilar:nth-child(3) { padding-left: 0; border-left: none; }
+    .pilar:nth-child(n+3) { border-top: 1px solid var(--gray-100); }
+    .trayectoria { grid-template-columns: 1fr 1fr; row-gap: 20px; }
+    .proceso { grid-template-columns: repeat(3, 1fr); }
     .about-grid, .philosophy-inner, .contacto-grid { gap: 50px; }
 }
 @media (max-width: 860px) {
@@ -812,6 +1005,14 @@ a { text-decoration: none; color: inherit; }
     .team-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
     .contacto-grid { grid-template-columns: 1fr; gap: 36px; }
     .llamado-inner { flex-direction: column; align-items: flex-start; }
+    .pilares, .casos, .servicios-resumen, .trayectoria, .clientes, .proceso, .cifras-banda { grid-template-columns: 1fr; }
+    .pilar, .pilar + .pilar { padding: 26px 0; border-left: none; }
+    .pilar + .pilar { border-top: 1px solid var(--gray-100); }
+    .servicio-resumen, .servicio-resumen + .servicio-resumen { padding: 28px 0 0; border-left: none; }
+    .trayectoria::before { top: 0; bottom: 0; left: 4px; right: auto; width: 1px; height: auto; }
+    .hito { padding: 0 0 30px 32px; }
+    .cifra-item + .cifra-item { border-left: none; border-top: 1px solid var(--gray-100); }
+    .seccion-pie { flex-direction: column; align-items: flex-start; }
 
     .footer { padding-top: 64px; }
     .footer-grid { grid-template-columns: 1fr; gap: 36px; padding-bottom: 20px; }

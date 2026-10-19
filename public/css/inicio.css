@@ -182,37 +182,7 @@
     to { opacity: 1; transform: none; }
 }
 
-/* ===== RESUMEN DE ÁREAS (inicio) ===== */
-.areas-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--gray-100);
-}
-.area {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: 40px 34px 44px 0;
-    transition: background 0.3s;
-}
-.area + .area { padding-left: 34px; border-left: 1px solid var(--gray-100); }
-.area-num {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: var(--acero);
-}
-.area h3 {
-    font-family: var(--font-serif);
-    font-weight: 300;
-    font-size: 1.5rem;
-    color: var(--navy);
-}
-.area p {
-    font-size: 0.92rem;
-    color: var(--gray-500);
-    flex: 1;
-}
+/* ===== INTRODUCCIÓN (inicio) ===== */
 .inicio-intro {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -241,7 +211,4 @@
     .hero-cifra + .hero-cifra { padding-left: 0; border-left: none; border-top: 1px solid rgba(255,255,255,0.12); }
     .hero-acciones { gap: 22px; }
     .inicio-intro { grid-template-columns: 1fr; gap: 24px; margin-bottom: 44px; }
-    .areas-grid { grid-template-columns: 1fr; }
-    .area, .area + .area { padding: 30px 0; border-left: none; }
-    .area + .area { border-top: 1px solid var(--gray-100); }
 }
