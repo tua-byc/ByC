@@ -1,9 +1,7 @@
 {
   "routes": [
     { "route": "/acerca", "redirect": "/quienes-somos", "statusCode": 301 },
-    { "route": "/acerca/", "redirect": "/quienes-somos", "statusCode": 301 },
     { "route": "/equipo", "redirect": "/quienes-somos#equipo", "statusCode": 301 },
-    { "route": "/equipo/", "redirect": "/quienes-somos#equipo", "statusCode": 301 },
     {
       "route": "/img/*",
       "headers": { "cache-control": "public, max-age=31536000, immutable" }

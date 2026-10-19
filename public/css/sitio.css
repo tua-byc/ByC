@@ -680,46 +680,29 @@ a { text-decoration: none; color: inherit; }
 .footer {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(180deg, #0a1628 0%, #0f2744 55%, #16395f 100%);
+    /* Fondo generado con Higgsfield: submarino lejano bajo el agua, abajo a la derecha */
+    background:
+        linear-gradient(180deg, rgba(8,18,34,0.9) 0%, rgba(8,18,34,0.55) 40%, rgba(8,18,34,0) 70%),
+        var(--navy) url('/img/pie-submarino-v1.webp') center bottom / cover no-repeat;
     color: rgba(255,255,255,0.7);
     padding: 90px 0 0;
 }
-/* Marca de agua: B&C gigante fundido con el fondo */
+/* Marca de agua: el logo original completo, grande y casi transparente */
 .footer-marca {
     position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translate(-50%, 24%);
-    font-family: var(--font-serif);
-    font-weight: 700;
-    font-size: clamp(14rem, 34vw, 32rem);
-    line-height: 1;
-    letter-spacing: -0.02em;
-    white-space: nowrap;
-    color: rgba(255,255,255,0.045);
+    left: 2%;
+    bottom: 64px;
+    width: clamp(380px, 38vw, 620px);
+    opacity: 0.06;
     pointer-events: none;
     user-select: none;
-}
-/* Submarino emergiendo delante de la marca */
-.footer-submarino {
-    position: absolute;
-    right: 7%;
-    bottom: 78px;
-    width: clamp(280px, 32vw, 500px);
-    opacity: 0.1;
-    pointer-events: none;
-    animation: subNavega 9s ease-in-out infinite;
-}
-@keyframes subNavega {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(-14px, 4px); }
 }
 .footer-grid {
     position: relative;
     display: grid;
     grid-template-columns: 1.4fr 1fr 1.2fr 1.4fr;
     gap: 50px;
-    padding-bottom: 150px;
+    padding-bottom: clamp(200px, 22vw, 320px);
 }
 .footer-logo { height: 58px; width: auto; margin-bottom: 22px; }
 .footer-lema {
@@ -770,7 +753,7 @@ a { text-decoration: none; color: inherit; }
     html { scroll-behavior: auto; }
     .fade-in { opacity: 1; transform: none; transition: none; }
     .ticker { overflow-x: auto; }
-    .ticker-pista, .footer-submarino { animation: none; }
+    .ticker-pista { animation: none; }
 }
 
 /* ===== RESPONSIVE ===== */
@@ -822,7 +805,8 @@ a { text-decoration: none; color: inherit; }
     .footer { padding-top: 64px; }
     .footer-grid { grid-template-columns: 1fr; gap: 36px; padding-bottom: 120px; }
     .footer-legal { flex-direction: column; padding: 20px 24px; }
-    .footer-submarino { right: -30px; bottom: 120px; opacity: 0.08; }
+    .footer { background-position: 0 0, 86% bottom; }
+    .footer-marca { width: 78%; left: 4%; bottom: 120px; }
 }
 @media (max-width: 480px) {
     .logos-grid { grid-template-columns: repeat(2, 1fr); }
