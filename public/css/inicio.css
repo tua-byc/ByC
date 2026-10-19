@@ -11,7 +11,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 26px;
     background: var(--navy);
     cursor: pointer;
     animation: introSale 1.2s ease 2.7s forwards;
@@ -21,23 +20,9 @@
     opacity: 0;
     animation: introLogo 1.4s ease 0.2s forwards;
 }
-.intro-lema {
-    font-family: var(--font-serif);
-    font-weight: 300;
-    font-style: italic;
-    font-size: 1.05rem;
-    letter-spacing: 1px;
-    color: rgba(255,255,255,0.7);
-    opacity: 0;
-    animation: introLema 1s ease 1.1s forwards;
-}
 @keyframes introLogo {
     from { opacity: 0; transform: scale(0.94); }
     to { opacity: 1; transform: scale(1); }
-}
-@keyframes introLema {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: none; }
 }
 @keyframes introSale {
     to { opacity: 0; visibility: hidden; }
