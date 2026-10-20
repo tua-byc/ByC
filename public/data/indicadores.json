@@ -1,0 +1,48 @@
+{
+  "actualizado": "2026-10-19T13:58:41.875Z",
+  "fuente": "mindicador.cl",
+  "items": [
+    {
+      "codigo": "dolar",
+      "etiqueta": "USD",
+      "formato": "pesos",
+      "valor": 981.65,
+      "fecha": "2026-10-19"
+    },
+    {
+      "codigo": "euro",
+      "etiqueta": "EUR",
+      "formato": "pesos",
+      "valor": 1101.99,
+      "fecha": "2026-10-19"
+    },
+    {
+      "codigo": "uf",
+      "etiqueta": "UF",
+      "formato": "pesos",
+      "valor": 41183.94,
+      "fecha": "2026-10-19"
+    },
+    {
+      "codigo": "utm",
+      "etiqueta": "UTM",
+      "formato": "pesos0",
+      "valor": 72151,
+      "fecha": "2026-10-01"
+    },
+    {
+      "codigo": "tpm",
+      "etiqueta": "TPM",
+      "formato": "porcentaje",
+      "valor": 4.5,
+      "fecha": "2026-10-19"
+    },
+    {
+      "codigo": "libra_cobre",
+      "etiqueta": "Cobre",
+      "formato": "dolarLibra",
+      "valor": 6.54,
+      "fecha": "2026-10-19"
+    }
+  ]
+}

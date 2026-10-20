@@ -1,0 +1,199 @@
+/* ===== B&C — página de inicio: intro, mar y submarino ===== */
+
+/* ===== INTRO (solo la primera vez por visita) ===== */
+.intro { display: none; }
+.intro-activa body { overflow: hidden; }
+.con-intro .intro {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy);
+    cursor: pointer;
+    animation: introSale 1.2s ease 2.7s forwards;
+}
+.intro img {
+    width: clamp(140px, 16vw, 210px);
+    opacity: 0;
+    animation: introLogo 1.4s ease 0.2s forwards;
+}
+@keyframes introLogo {
+    from { opacity: 0; transform: scale(0.94); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes introSale {
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* ===== HERO ===== */
+.hero {
+    position: relative;
+    height: 100vh;
+    height: 100svh;
+    min-height: 640px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--azul-mar) url('/img/mar-submarino-poster-v1.webp') center / cover no-repeat;
+}
+.hero-mar {
+    position: absolute;
+    inset: 0;
+}
+.hero-mar video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+.hero-mar video::-webkit-media-controls,
+.hero-mar video::-webkit-media-controls-start-playback-button { display: none !important; }
+
+/* Velo para que el texto se lea sin oscurecer todo el mar */
+.hero-velo {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(6,16,32,0.72) 0%, rgba(6,16,32,0.45) 42%, rgba(6,16,32,0.12) 100%),
+        linear-gradient(0deg, rgba(6,16,32,0.7) 0%, rgba(6,16,32,0) 32%),
+        linear-gradient(180deg, rgba(6,16,32,0.55) 0%, rgba(6,16,32,0) 24%);
+}
+
+.hero-contenido {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding-top: calc(var(--alto-nav) + var(--alto-ticker));
+}
+.hero-antetitulo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 28px;
+}
+.hero-antetitulo::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+}
+.hero h1 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: clamp(3rem, 7.4vw, 6.4rem);
+    line-height: 1.04;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    margin-bottom: 30px;
+}
+.hero h1 em { font-style: italic; }
+.hero-bajada {
+    max-width: 820px;
+    font-size: clamp(1.05rem, 1.45vw, 1.3rem);
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.86);
+    margin-bottom: 44px;
+}
+.hero-acciones {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 34px;
+}
+
+/* Cifras en franja inferior, a todo el ancho */
+.hero > .container { width: 100%; }
+.hero-cifras {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.16);
+    margin-bottom: 0;
+}
+.hero-cifra {
+    padding: 28px 0 34px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+}
+.hero-cifra + .hero-cifra { padding-left: 40px; border-left: 1px solid rgba(255,255,255,0.16); }
+.hero-cifra-numero {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+    color: var(--white);
+    line-height: 1;
+}
+.hero-cifra-texto {
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+}
+
+/* Entrada del texto (espera a la intro si se muestra) */
+.hero-contenido > *,
+.hero-cifras {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: heroEntra 1s ease forwards;
+}
+.hero-contenido > :nth-child(1) { animation-delay: 0.15s; }
+.hero-contenido > :nth-child(2) { animation-delay: 0.3s; }
+.hero-contenido > :nth-child(3) { animation-delay: 0.45s; }
+.hero-contenido > :nth-child(4) { animation-delay: 0.6s; }
+.hero-cifras { animation-delay: 0.8s; }
+.con-intro .hero-contenido > :nth-child(1) { animation-delay: 3.1s; }
+.con-intro .hero-contenido > :nth-child(2) { animation-delay: 3.25s; }
+.con-intro .hero-contenido > :nth-child(3) { animation-delay: 3.4s; }
+.con-intro .hero-contenido > :nth-child(4) { animation-delay: 3.55s; }
+.con-intro .hero-cifras { animation-delay: 3.75s; }
+@keyframes heroEntra {
+    to { opacity: 1; transform: none; }
+}
+
+/* ===== INTRODUCCIÓN (inicio) ===== */
+.inicio-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 70px;
+}
+.inicio-intro p {
+    font-size: 1.05rem;
+    color: var(--gray-500);
+    line-height: 1.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-contenido > *, .hero-cifras { opacity: 1; transform: none; animation: none; }
+}
+@media (max-width: 860px) {
+    .hero { min-height: 600px; }
+    .hero-mar { display: none; }
+    .hero-velo {
+        background:
+            linear-gradient(0deg, rgba(6,16,32,0.8) 0%, rgba(6,16,32,0.3) 60%, rgba(6,16,32,0.55) 100%);
+    }
+    .hero-cifras { grid-template-columns: 1fr; }
+    .hero-cifra { padding: 14px 0; }
+    .hero-cifra + .hero-cifra { padding-left: 0; border-left: none; border-top: 1px solid rgba(255,255,255,0.12); }
+    .hero-acciones { gap: 22px; }
+    .inicio-intro { grid-template-columns: 1fr; gap: 24px; margin-bottom: 44px; }
+}
